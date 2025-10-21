@@ -1,34 +1,26 @@
 {
   "name": "ecommerce",
-  "version": "1.0.0",
-  "private": true,
   "description": "All frontend applications & packages for generic ecommerce projects.",
-  "keywords": [
-    "ecommerece",
-    "javascript",
-    "typescript",
-    "nuxt",
-    "vue",
-    "monorepo"
-  ],
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/milicevica/ecommerce"
+  },
+  "license": "MIT",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "pnpm -r run dev",
+    "build": "pnpm -r run build"
+  },
   "author": {
     "name": "Aleksandar Milicevic",
     "email": "hi@milicevic.dev",
     "url": "https://www.milicevic.dev"
   },
-  "license": "ISC",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/milicevica/ecommerce"
-  },
-  "type": "module",
   "engines": {
     "node": ">=22.18.0",
     "npm": ">=10.9.3"
   },
-  "packageManager": "pnpm@10.18.3",
-  "scripts": {
-    "dev": "pnpm -r run dev",
-    "build": "pnpm -r run build"
-  }
+  "packageManager": "pnpm@10.18.3"
 }
