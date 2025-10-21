@@ -1,3 +1,5 @@
 <template>
-  <div>Storefront</div>
+  <NuxtLayout>
+    <NuxtPage />
+  </NuxtLayout>
 </template>
