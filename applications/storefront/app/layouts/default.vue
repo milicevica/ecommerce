@@ -4,9 +4,7 @@
     <app-header />
 
     <u-main>
-      <u-container>
-        <slot />
-      </u-container>
+      <slot />
     </u-main>
 
     <app-footer class="mt-8" />
