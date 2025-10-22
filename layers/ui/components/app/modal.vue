@@ -80,7 +80,9 @@ defineExpose<ModalElement>({
     </template>
 
     <template v-if="$slots.footer" #footer>
-      <slot name="footer" :arg="currentArg" />
+      <div class="flex justify-end w-full gap-2">
+        <slot name="footer" :arg="currentArg" />
+      </div>
     </template>
   </u-drawer>
   <u-modal
