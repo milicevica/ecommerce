@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import type { ModalElement } from "~/components/modal-demo.vue";
+import type { ModalElement } from "../../../../layers/ui/components/app/modal.vue";
 
 const modalEl = useTemplateRef<ModalElement>("modalEl");
 
@@ -15,7 +15,7 @@ async function task() {
       Open Modal
     </u-button>
 
-    <ModalDemo ref="modalEl" description="Demo Modal">
+    <AppModal ref="modalEl" description="Demo Modal">
       <template #title>
         <h2>Modal Title</h2>
       </template>
@@ -23,8 +23,10 @@ async function task() {
         <p>This is modal content</p>
       </template>
       <template #footer>
-        <u-button @click="modalEl?.close()">Close</u-button>
+        <u-button @click="modalEl?.close()">
+          Close
+        </u-button>
       </template>
-    </ModalDemo>
+    </AppModal>
   </div>
 </template>
