@@ -1,33 +1,36 @@
-<script lang="ts">
-export type ModalElement = {
-  getArg: () => any | undefined;
-  open: (arg?: any | undefined) => void;
-  close: () => void;
-}
-</script>
-
 <script lang="ts" setup>
 import { breakpointsTailwind, useBreakpoints } from '@vueuse/core';
 
 const props = withDefaults(
   defineProps<{
     id?: string;
-    title?: string | ((arg: any | undefined) => string | undefined);
-    description?: string | ((arg: any | undefined) => string | undefined);
-    uiSheetVariants?: { [key: string]: any };
-    uiBoxVariants?: { [key: string]: any };
+    title?: string | ((arg: unknown | undefined) => string | undefined);
+    description?: string | ((arg: unknown | undefined) => string | undefined);
+    uiSheetVariants?: { [key: string]: unknown };
+    uiBoxVariants?: { [key: string]: unknown };
     dismissible?: boolean;
   }>(),
   {
+    id: undefined,
+    title: undefined,
+    description: undefined,
+    uiSheetVariants: undefined,
+    uiBoxVariants: undefined,
     dismissible: true,
   },
 );
 
-const emit = defineEmits<{ (e: "close"): void; (e: "open", arg: any): any }>();
+export type ModalElement = {
+  getArg: () => unknown | undefined;
+  open: (arg?: unknown | undefined) => void;
+  close: () => void;
+}
+
+const emit = defineEmits<{ (e: "close"): void; (e: "open", arg: unknown): unknown }>();
 
 const bp = useBreakpoints(breakpointsTailwind);
 
-const currentArg = ref<any | undefined>();
+const currentArg = ref<unknown | undefined>();
 const isOpen = ref(false);
 const isMobile = computed(() => bp.smallerOrEqual("md").value);
 
@@ -45,7 +48,7 @@ watch(isOpen, (val) => {
   }
 });
 
-function open(arg: any | undefined) {
+function open(arg: unknown | undefined) {
   currentArg.value = arg;
   isOpen.value = true;
 }
