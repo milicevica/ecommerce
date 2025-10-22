@@ -3,7 +3,7 @@ import type { NavigationMenuItem } from "@nuxt/ui";
 
 const route = useRoute();
 
-const items = computed<NavigationMenuItem[]>(() => [
+const categories = computed<NavigationMenuItem[]>(() => [
   {
     label: "All Clocks",
     to: "/products/allClocks",
@@ -30,58 +30,75 @@ const items = computed<NavigationMenuItem[]>(() => [
     active: route.path.startsWith("/sale"),
   },
 ]);
+
+const actionMenu = computed<NavigationMenuItem[]>(() => [
+  {
+    label: "Log In",
+    icon: "tabler:user",
+  },
+  {
+    label: "Search",
+    icon: "tabler:search",
+  },
+  {
+    label: "Wishlist",
+    icon: "tabler:heart",
+  },
+  {
+    label: "Cart",
+    icon: "tabler:shopping-bag",
+  },
+]);
 </script>
 
 <template>
-  <u-header>
+  <u-header mode="slideover">
     <template #title>
       ECOMMERCE
     </template>
 
-    <u-navigation-menu :items="items" class="uppercase" />
+    <u-navigation-menu :items="categories" class="uppercase" />
+
+    <template #body>
+      <u-navigation-menu
+        :items="categories"
+        class="uppercase"
+        orientation="vertical"
+      />
+
+      <u-navigation-menu :items="actionMenu">
+        <template #item="{ item }">
+          <u-tooltip :text="item.label">
+            <u-button
+              color="neutral"
+              variant="ghost"
+              to="/"
+              :icon="item.icon"
+              :aria-label="item.label"
+            />
+          </u-tooltip>
+        </template>
+      </u-navigation-menu>
+    </template>
 
     <template #right>
       <app-theme-toggle />
 
-      <u-tooltip text="Log In">
-        <u-button
-          color="neutral"
-          variant="ghost"
-          to="/"
-          icon="tabler:user"
-          aria-label="LogIn"
-        />
-      </u-tooltip>
-
-      <u-tooltip text="Search">
-        <u-button
-          color="neutral"
-          variant="ghost"
-          to="/"
-          icon="tabler:search"
-          aria-label="Search"
-        />
-      </u-tooltip>
-
-      <u-tooltip text="Wishlist">
-        <u-button
-          color="neutral"
-          variant="ghost"
-          to="/"
-          icon="tabler:heart"
-          aria-label="wishlist"
-        />
-      </u-tooltip>
-
-      <u-tooltip text="Cart">
-        <u-button
-          color="neutral"
-          variant="ghost"
-          to="/"
-          icon="tabler:shopping-bag"
-          aria-label="cart"
-        />
-      </u-tooltip>
+      <client-only>
+        <u-navigation-menu :items="actionMenu" class="hidden lg:flex">
+          <template #item="{ item }">
+            <u-tooltip :text="item.label">
+              <u-button
+                color="neutral"
+                variant="ghost"
+                to="/"
+                :icon="item.icon"
+                :aria-label="item.label"
+              />
+            </u-tooltip>
+          </template>
+        </u-navigation-menu>
+      </client-only>
     </template>
   </u-header>
 </template>
