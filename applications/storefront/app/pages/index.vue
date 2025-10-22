@@ -7,7 +7,7 @@ async function expand() {
 </script>
 
 <template>
-  <div>
+  <div class="flex flex-col gap-4">
     <h1>Storefront</h1>
 
     <app-prompt-dialog title="Prompt Question" question="Are you sure you want to proceed?" />
