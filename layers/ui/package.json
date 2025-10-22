@@ -12,6 +12,7 @@
     "lint": "eslint ."
   },
   "devDependencies": {
+    "@iconify-json/tabler": "^1.2.23",
     "@nuxt/eslint": "latest",
     "eslint": "^9.38.0",
     "nuxt": "^4.1.3",
