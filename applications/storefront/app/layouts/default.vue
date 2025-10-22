@@ -3,8 +3,10 @@
     <app-message />
     <app-header />
 
-    <main>
-      <slot />
-    </main>
+    <u-main>
+      <u-container>
+        <slot />
+      </u-container>
+    </u-main>
   </div>
 </template>
