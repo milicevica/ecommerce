@@ -11,9 +11,9 @@ async function task() {
 <template>
   <div>
     <h1>Storefront</h1>
-    <button @click="task">
+    <u-button @click="task">
       Open Modal
-    </button>
+    </u-button>
 
     <ModalDemo ref="modalEl" description="Demo Modal">
       <template #title>
@@ -23,7 +23,7 @@ async function task() {
         <p>This is modal content</p>
       </template>
       <template #footer>
-        <button @click="modalEl?.close()">Close</button>
+        <u-button @click="modalEl?.close()">Close</u-button>
       </template>
     </ModalDemo>
   </div>
