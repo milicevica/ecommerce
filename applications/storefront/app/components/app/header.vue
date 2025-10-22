@@ -42,6 +42,46 @@ const items = computed<NavigationMenuItem[]>(() => [
 
     <template #right>
       <app-theme-toggle />
+
+      <u-tooltip text="Log In">
+        <u-button
+          color="neutral"
+          variant="ghost"
+          to="/"
+          icon="tabler:user"
+          aria-label="LogIn"
+        />
+      </u-tooltip>
+
+      <u-tooltip text="Search">
+        <u-button
+          color="neutral"
+          variant="ghost"
+          to="/"
+          icon="tabler:search"
+          aria-label="Search"
+        />
+      </u-tooltip>
+
+      <u-tooltip text="Wishlist">
+        <u-button
+          color="neutral"
+          variant="ghost"
+          to="/"
+          icon="tabler:heart"
+          aria-label="wishlist"
+        />
+      </u-tooltip>
+
+      <u-tooltip text="Cart">
+        <u-button
+          color="neutral"
+          variant="ghost"
+          to="/"
+          icon="tabler:shopping-bag"
+          aria-label="cart"
+        />
+      </u-tooltip>
     </template>
   </u-header>
 </template>
