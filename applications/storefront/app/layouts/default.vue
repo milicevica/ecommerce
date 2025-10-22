@@ -1,6 +1,9 @@
 <template>
-  <main>
-    <app-theme-toggle />
-    <slot />
-  </main>
+  <div>
+    <app-header />
+
+    <main>
+      <slot />
+    </main>
+  </div>
 </template>
