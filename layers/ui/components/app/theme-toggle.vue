@@ -1,0 +1,24 @@
+<script lang="ts" setup>
+const colorMode = useColorMode();
+
+const isDark = computed({
+  get() {
+    return colorMode.value === "dark";
+  },
+  set(_isDark) {
+    colorMode.value = _isDark ? "dark" : "light";
+  }
+});
+</script>
+
+<template>
+  <client-only v-if="!colorMode?.forced">
+    <u-button
+      :icon="isDark ? 'i-lucide-moon' : 'i-lucide-sun'"
+      color="neutral"
+      variant="ghost"
+      :aria-label="`Switch to ${isDark ? 'light' : 'dark'} mode`"
+      @click="isDark = !isDark"
+    />
+  </client-only>
+</template>
