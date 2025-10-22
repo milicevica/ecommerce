@@ -8,5 +8,7 @@
         <slot />
       </u-container>
     </u-main>
+
+    <app-footer class="mt-8" />
   </div>
 </template>
