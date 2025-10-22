@@ -15,12 +15,15 @@ async function task() {
       Open Modal
     </button>
 
-    <ModalDemo ref="modalEl">
+    <ModalDemo ref="modalEl" description="Demo Modal">
       <template #title>
         <h2>Modal Title</h2>
       </template>
       <template #body>
         <p>This is modal content</p>
+      </template>
+      <template #footer>
+        <button @click="modalEl?.close()">Close</button>
       </template>
     </ModalDemo>
   </div>
