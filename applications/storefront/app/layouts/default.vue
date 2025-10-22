@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="default-layout">
     <app-message />
     <app-header />
 
