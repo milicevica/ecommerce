@@ -87,15 +87,37 @@ const actionMenu = computed<NavigationMenuItem[]>(() => [
       <client-only>
         <u-navigation-menu :items="actionMenu" class="hidden lg:flex">
           <template #item="{ item }">
-            <u-tooltip :text="item.label">
-              <u-button
-                color="neutral"
-                variant="ghost"
-                to="/"
-                :icon="item.icon"
-                :aria-label="item.label"
-              />
-            </u-tooltip>
+            <template v-if="item.label === 'Cart'">
+              <u-slideover title="My Cart">
+                <u-tooltip :text="item.label">
+                  <u-button
+
+                    color="neutral"
+                    variant="ghost"
+                    to="/"
+                    :icon="item.icon"
+                    :aria-label="item.label"
+                  />
+                </u-tooltip>
+
+                <template #body>
+                  <div class="h-full flex items-center justify-center font-bold uppercase">
+                    Your Shopping Cart Is Empty
+                  </div>
+                </template>
+              </u-slideover>
+            </template>
+            <template v-else>
+              <u-tooltip :text="item.label">
+                <u-button
+                  color="neutral"
+                  variant="ghost"
+                  to="/"
+                  :icon="item.icon"
+                  :aria-label="item.label"
+                />
+              </u-tooltip>
+            </template>
           </template>
         </u-navigation-menu>
       </client-only>
