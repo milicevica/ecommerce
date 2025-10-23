@@ -4,7 +4,7 @@ import type { NavigationMenuItem } from "@nuxt/ui";
 import { en, fr } from "@nuxt/ui/locale";
 
 const route = useRoute();
-const { locale } = useI18n();
+const { locale, setLocale } = useI18n();
 
 useHead({
   title: "Ecommerce",
@@ -69,8 +69,11 @@ const actionMenu = computed<NavigationMenuItem[]>(() => [
       </template>
 
       <template #right>
-        <u-locale-select v-model="locale" :locales="[en, fr]" />
-
+        <u-locale-select
+          v-model="locale"
+          :locales="[en, fr]"
+          @update:model-value="$event === 'en' || $event === 'fr' ? setLocale($event) : setLocale('en')"
+        />
         <app-theme-toggle />
 
         <u-tooltip text="Log In">

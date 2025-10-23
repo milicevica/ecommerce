@@ -3,10 +3,11 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: ["@nuxtjs/i18n"],
   i18n: {
+    strategy: "no_prefix",
+    defaultLocale: 'en',
     locales: [
-      { code: "en", language: "en-US", file: "en.json" },
-      { code: "fr", language: "fr-FR", file: "fr.json" },
+      { code: "en", name: "English", file: "en.json" },
+      { code: "fr", name: "France", file: "fr.json" }
     ],
-    defaultLocale: "en"
   }
 })
