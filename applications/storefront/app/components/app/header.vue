@@ -59,9 +59,13 @@ const actionMenu = computed<NavigationMenuItem[]>(() => [
 
 <template>
   <div>
-    <u-header :toggle="null">
+    <u-header>
       <template #title>
         ECOMMERCE
+      </template>
+
+      <template #toggle>
+        <span />
       </template>
 
       <template #right>
