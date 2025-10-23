@@ -19,6 +19,7 @@ const items = [
             :src="item.src"
             :alt="item.alt"
             class="w-full h-screen object-cover"
+            fetchpriority="high"
           >
 
           <div class="absolute inset-0 bg-black/40 flex flex-col gap-4 justify-center items-center text-center text-white p-6">
@@ -56,6 +57,7 @@ const items = [
             alt="Category 1"
             width="320"
             height="320"
+            fetchpriority="high"
           >
           <u-button variant="outline" class="w-[250px] justify-center">
             Living Room
@@ -68,6 +70,7 @@ const items = [
             alt="Category 2"
             width="320"
             height="320"
+            fetchpriority="high"
           >
           <u-button variant="outline" class="w-[250px] justify-center">
             Large Wall Clocks
@@ -80,6 +83,7 @@ const items = [
             alt="Category 3"
             width="320"
             height="320"
+            fetchpriority="high"
           >
           <u-button variant="outline" class="w-[250px] justify-center">
             Outdoors
@@ -92,6 +96,7 @@ const items = [
             alt="Category 4"
             width="320"
             height="320"
+            fetchpriority="high"
           >
           <u-button variant="outline" class="w-[250px] justify-center">
             Mantel Clocks

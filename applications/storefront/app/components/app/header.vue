@@ -3,6 +3,13 @@ import type { NavigationMenuItem } from "@nuxt/ui";
 
 const route = useRoute();
 
+useHead({
+  title: "Ecommerce",
+  meta: [
+    { name: "description", content: "Ecommerce" },
+  ],
+});
+
 const categories = computed<NavigationMenuItem[]>(() => [
   {
     label: "All Clocks",
