@@ -1,7 +1,10 @@
 <script lang="ts" setup>
 import type { NavigationMenuItem } from "@nuxt/ui";
 
+import { en, fr } from "@nuxt/ui/locale";
+
 const route = useRoute();
+const { locale } = useI18n();
 
 useHead({
   title: "Ecommerce",
@@ -40,10 +43,6 @@ const categories = computed<NavigationMenuItem[]>(() => [
 
 const actionMenu = computed<NavigationMenuItem[]>(() => [
   {
-    label: "Log In",
-    icon: "tabler:user",
-  },
-  {
     label: "Search",
     icon: "tabler:search",
   },
@@ -59,44 +58,95 @@ const actionMenu = computed<NavigationMenuItem[]>(() => [
 </script>
 
 <template>
-  <u-header mode="slideover">
-    <template #title>
-      ECOMMERCE
-    </template>
+  <div>
+    <u-header :toggle="null">
+      <template #title>
+        ECOMMERCE
+      </template>
 
-    <u-navigation-menu :items="categories" class="uppercase" />
+      <template #right>
+        <u-locale-select v-model="locale" :locales="[en, fr]" />
 
-    <template #body>
-      <u-navigation-menu
-        :items="categories"
-        class="uppercase"
-        orientation="vertical"
-      />
+        <app-theme-toggle />
 
-      <u-navigation-menu :items="actionMenu">
-        <template #item="{ item }">
-          <u-tooltip :text="item.label">
-            <u-button
-              color="neutral"
-              variant="ghost"
-              to="/"
-              :icon="item.icon"
-              :aria-label="item.label"
-            />
-          </u-tooltip>
-        </template>
-      </u-navigation-menu>
-    </template>
+        <u-tooltip text="Log In">
+          <u-button
+            color="neutral"
+            variant="ghost"
+            icon="tabler:user"
+            aria-label="Log In"
+          />
+        </u-tooltip>
+      </template>
+    </u-header>
+    <u-header title="">
+      <u-navigation-menu :items="categories" class="uppercase" />
 
-    <template #right>
-      <app-theme-toggle />
+      <template #body>
+        <u-navigation-menu
+          :items="categories"
+          class="uppercase"
+          orientation="vertical"
+        />
 
-      <client-only>
-        <u-navigation-menu :items="actionMenu" class="hidden lg:flex">
+        <u-navigation-menu :items="actionMenu">
           <template #item="{ item }">
-            <template v-if="item.label === 'Cart'">
-              <u-slideover title="My Cart">
-                <u-tooltip :text="$t('cart')">
+            <u-tooltip :text="item.label">
+              <u-button
+                color="neutral"
+                variant="ghost"
+                to="/"
+                :icon="item.icon"
+                :aria-label="item.label"
+              />
+            </u-tooltip>
+          </template>
+        </u-navigation-menu>
+      </template>
+
+      <template #right>
+        <client-only>
+          <u-navigation-menu :items="actionMenu" class="hidden lg:flex">
+            <template #item="{ item }">
+              <template v-if="item.label === 'Cart'">
+                <u-slideover title="My Cart">
+                  <u-tooltip :text="$t('cart')">
+                    <u-button
+                      color="neutral"
+                      variant="ghost"
+                      to="/"
+                      :icon="item.icon"
+                      :aria-label="item.label"
+                    />
+                  </u-tooltip>
+
+                  <template #body>
+                    <div class="h-full flex items-center justify-center font-bold uppercase">
+                      {{ $t("cartEmpty") }}
+                    </div>
+                  </template>
+                </u-slideover>
+              </template>
+              <template v-else-if="item.label === 'Search'">
+                <u-slideover side="top" title="Search">
+                  <u-tooltip :text="item.label">
+                    <u-button
+                      color="neutral"
+                      variant="ghost"
+                      :icon="item.icon"
+                      :aria-label="item.label"
+                    />
+                  </u-tooltip>
+
+                  <template #body>
+                    <div class="flex w-full p-6">
+                      <u-input placeholder="Search For" class="w-full" />
+                    </div>
+                  </template>
+                </u-slideover>
+              </template>
+              <template v-else>
+                <u-tooltip :text="item.label">
                   <u-button
                     color="neutral"
                     variant="ghost"
@@ -105,46 +155,11 @@ const actionMenu = computed<NavigationMenuItem[]>(() => [
                     :aria-label="item.label"
                   />
                 </u-tooltip>
-
-                <template #body>
-                  <div class="h-full flex items-center justify-center font-bold uppercase">
-                    {{ $t("cartEmpty") }}
-                  </div>
-                </template>
-              </u-slideover>
+              </template>
             </template>
-            <template v-else-if="item.label === 'Search'">
-              <u-slideover side="top" title="Search">
-                <u-tooltip :text="item.label">
-                  <u-button
-                    color="neutral"
-                    variant="ghost"
-                    :icon="item.icon"
-                    :aria-label="item.label"
-                  />
-                </u-tooltip>
-
-                <template #body>
-                  <div class="flex w-full p-6">
-                    <u-input placeholder="Search For" class="w-full" />
-                  </div>
-                </template>
-              </u-slideover>
-            </template>
-            <template v-else>
-              <u-tooltip :text="item.label">
-                <u-button
-                  color="neutral"
-                  variant="ghost"
-                  to="/"
-                  :icon="item.icon"
-                  :aria-label="item.label"
-                />
-              </u-tooltip>
-            </template>
-          </template>
-        </u-navigation-menu>
-      </client-only>
-    </template>
-  </u-header>
+          </u-navigation-menu>
+        </client-only>
+      </template>
+    </u-header>
+  </div>
 </template>
