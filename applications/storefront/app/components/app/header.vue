@@ -107,6 +107,24 @@ const actionMenu = computed<NavigationMenuItem[]>(() => [
                 </template>
               </u-slideover>
             </template>
+            <template v-else-if="item.label === 'Search'">
+              <u-slideover side="top" title="Search">
+                <u-tooltip :text="item.label">
+                  <u-button
+                    color="neutral"
+                    variant="ghost"
+                    :icon="item.icon"
+                    :aria-label="item.label"
+                  />
+                </u-tooltip>
+
+                <template #body>
+                  <div class="flex w-full p-6">
+                    <u-input placeholder="Search For" class="w-full" />
+                  </div>
+                </template>
+              </u-slideover>
+            </template>
             <template v-else>
               <u-tooltip :text="item.label">
                 <u-button
