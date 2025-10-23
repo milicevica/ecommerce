@@ -96,7 +96,7 @@ const actionMenu = computed<NavigationMenuItem[]>(() => [
           <template #item="{ item }">
             <template v-if="item.label === 'Cart'">
               <u-slideover title="My Cart">
-                <u-tooltip :text="item.label">
+                <u-tooltip :text="$t('cart')">
                   <u-button
 
                     color="neutral"
@@ -109,7 +109,7 @@ const actionMenu = computed<NavigationMenuItem[]>(() => [
 
                 <template #body>
                   <div class="h-full flex items-center justify-center font-bold uppercase">
-                    Your Shopping Cart Is Empty
+                    {{ $t("cartEmpty") }}
                   </div>
                 </template>
               </u-slideover>

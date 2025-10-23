@@ -5,7 +5,7 @@ export default defineNuxtConfig({
   compatibilityDate: "2025-07-15",
   devtools: { enabled: true },
   modules: ["@nuxt/eslint"],
-  extends: ["../../layers/ui"],
+  extends: ["../../layers/ui", "../../layers/i18n"],
   css: ["~/assets/css/main.css"],
   vite: {
     plugins: [tailwindcss()],

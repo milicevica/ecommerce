@@ -1,5 +1,5 @@
 {
-  "name": "i18n",
+  "name": "@ecommerce/i18n",
   "type": "module",
   "version": "0.0.1",
   "main": "./nuxt.config.ts",
@@ -17,5 +17,8 @@
     "nuxt": "^4.1.3",
     "typescript": "^5.9.3",
     "vue": "latest"
+  },
+  "dependencies": {
+    "@nuxtjs/i18n": "^10.1.1"
   }
 }
