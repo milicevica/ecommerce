@@ -98,7 +98,6 @@ const actionMenu = computed<NavigationMenuItem[]>(() => [
               <u-slideover title="My Cart">
                 <u-tooltip :text="$t('cart')">
                   <u-button
-
                     color="neutral"
                     variant="ghost"
                     to="/"
