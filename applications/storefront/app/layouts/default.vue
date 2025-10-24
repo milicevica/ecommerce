@@ -17,6 +17,6 @@ useHead(() => ({
       <slot />
     </u-main>
 
-    <app-footer class="mt-8" />
+    <app-footer />
   </div>
 </template>
