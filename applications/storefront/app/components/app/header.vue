@@ -77,7 +77,7 @@ const actionMenu = computed<NavigationMenuItem[]>(() => [
           :ui="{ content: 'w-48' }"
         >
           <u-button
-            icon="i-lucide-menu"
+            trailing-icon="tabler:arrow-down"
             color="neutral"
             variant="ghost"
           >
