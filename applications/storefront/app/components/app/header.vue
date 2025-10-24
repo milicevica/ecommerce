@@ -3,7 +3,6 @@ import type { NavigationMenuItem } from "@nuxt/ui";
 
 import { en, fr } from "@nuxt/ui/locale";
 
-const route = useRoute();
 const { locale, setLocale } = useI18n();
 
 useHead({
@@ -43,7 +42,7 @@ const actionMenu = computed<NavigationMenuItem[]>(() => [
 
 <template>
   <div>
-    <u-header>
+    <u-header class="border-b-0">
       <template #title>
         ECOMMERCE
       </template>
