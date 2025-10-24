@@ -13,31 +13,15 @@ useHead({
   ],
 });
 
-const categories = computed<NavigationMenuItem[]>(() => [
-  {
-    label: "All Clocks",
-    to: "/products/allClocks",
-    active: route.path.startsWith("/products/allClocks"),
-  },
+const items = ref([
   {
     label: "Wall Clocks",
-    to: "/products/wallClocks",
-    active: route.path.startsWith("/products/wallClocks"),
   },
   {
-    label: "Cuckoo Closk",
-    to: "/products/cuckooClocks",
-    active: route.path.startsWith("/products/cuckooClocks"),
+    label: "Cuckoo Clocks",
   },
   {
     label: "Alarm Clocks",
-    to: "/products/alarmClocks",
-    active: route.path.startsWith("/products/alarmClocks"),
-  },
-  {
-    label: "Sale",
-    to: "/sale",
-    active: route.path.startsWith("/sale"),
   },
 ]);
 
@@ -87,15 +71,23 @@ const actionMenu = computed<NavigationMenuItem[]>(() => [
       </template>
     </u-header>
     <u-header title="">
-      <u-navigation-menu :items="categories" class="uppercase" />
+      <template #title>
+        <u-dropdown-menu
+          :items="items"
+          :content="{ align: 'start' }"
+          :ui="{ content: 'w-48' }"
+        >
+          <u-button
+            icon="i-lucide-menu"
+            color="neutral"
+            variant="ghost"
+          >
+            Store
+          </u-button>
+        </u-dropdown-menu>
+      </template>
 
       <template #body>
-        <u-navigation-menu
-          :items="categories"
-          class="uppercase"
-          orientation="vertical"
-        />
-
         <u-navigation-menu :items="actionMenu">
           <template #item="{ item }">
             <u-tooltip :text="item.label">
