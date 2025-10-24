@@ -69,167 +69,123 @@ function next() {
       </u-carousel>
     </div>
 
-    <div class="flex flex-col gap-4">
-      <div class="flex flex-col gap-4 p-12 text-center">
-        <h2 class="text-4xl font-bold">
-          Explore Our Clocks
-        </h2>
-        <p>Our designs take their cue from timeless interiors - crafted to become the standout piece that finds its perfect spot on yout shelf, sideboard, or wall.</p>
-      </div>
-
-      <div class="flex items-center justify-center gap-4">
-        <div class="flex flex-col items-center justify-center gap-2">
-          <img
-            src="https://picsum.photos/640/640?random=1"
-            alt="Category 1"
-            width="320"
-            height="320"
-            fetchpriority="high"
-          >
-          <u-button variant="outline" class="w-full justify-center">
-            Living Room
-          </u-button>
+    <u-container>
+      <div class="flex flex-col gap-4">
+        <div class="flex flex-col gap-4 p-12 text-center">
+          <h2 class="text-4xl font-bold">
+            Explore Our Clocks
+          </h2>
+          <p>Our designs take their cue from timeless interiors - crafted to become the standout piece that finds its perfect spot on yout shelf, sideboard, or wall.</p>
         </div>
 
-        <div class="flex flex-col items-center justify-center gap-2">
-          <img
-            src="https://picsum.photos/640/640?random=2"
-            alt="Category 2"
-            width="320"
-            height="320"
-            fetchpriority="high"
-          >
-          <u-button variant="outline" class="w-full justify-center">
-            Large Wall Clocks
-          </u-button>
-        </div>
-
-        <div class="flex flex-col items-center justify-center gap-2">
-          <img
-            src="https://picsum.photos/640/640?random=3"
-            alt="Category 3"
-            width="320"
-            height="320"
-            fetchpriority="high"
-          >
-          <u-button variant="outline" class="w-full justify-center">
-            Outdoors
-          </u-button>
-        </div>
-
-        <div class="flex flex-col items-center justify-center gap-2">
-          <img
-            src="https://picsum.photos/640/640?random=4"
-            alt="Category 4"
-            width="320"
-            height="320"
-            fetchpriority="high"
-          >
-          <u-button variant="outline" class="w-full justify-center">
-            Mantel Clocks
-          </u-button>
-        </div>
-      </div>
-    </div>
-
-    <div class="flex flex-col gap-4 items-center">
-      <div class="flex flex-col gap-4 p-12 text-center">
-        <h3 class="text-md font-bold uppercase">
-          Featured Collection
-        </h3>
-        <h2 class="text-4xl font-bold uppercase">
-          House Clocks
-        </h2>
-      </div>
-
-      <div class="relative w-full">
-        <div class="flex items-center gap-2">
-          <u-button
-            icon="i-lucide-chevron-left"
-            variant="ghost"
-            :disabled="!canPrev"
-            class="absolute top-1/2 -translate-y-1/2 left-2 shadow-md rounded-full w-10 h-10 flex items-center justify-center bg-white hover:bg-gray-100"
-            @click="prev"
-          />
-
-          <div class="grid grid-cols-4 gap-4 w-full">
-            <div
-              v-for="product in visibleProducts"
-              :key="product.id"
-              class="overflow-hidden shadow-sm hover:shadow-md transition cursor-pointer"
+        <div class="flex items-center justify-center gap-4">
+          <div class="flex flex-col items-center justify-center gap-2">
+            <img
+              src="https://picsum.photos/640/640?random=1"
+              alt="Category 1"
+              width="320"
+              height="320"
+              fetchpriority="high"
             >
-              <img
-                :src="product.image"
-                :alt="product.name"
-                class="w-full h-48 object-cover"
-              >
-              <div class="p-3 flex flex-col items-center">
-                <h3 class="font-bold text-center truncate">
-                  {{ product.name }}
-                </h3>
-                <p class="text-sm text-gray-500">
-                  {{ product.price }}
-                </p>
-              </div>
-            </div>
+            <u-button variant="outline" class="w-full justify-center">
+              Living Room
+            </u-button>
           </div>
 
-          <u-button
-            icon="i-lucide-chevron-right"
-            variant="ghost"
-            :disabled="!canNext"
-            class="absolute top-1/2 -translate-y-1/2 right-2 shadow-md rounded-full w-10 h-10 flex items-center justify-center bg-white hover:bg-gray-100"
-            @click="next"
-          />
+          <div class="flex flex-col items-center justify-center gap-2">
+            <img
+              src="https://picsum.photos/640/640?random=2"
+              alt="Category 2"
+              width="320"
+              height="320"
+              fetchpriority="high"
+            >
+            <u-button variant="outline" class="w-full justify-center">
+              Large Wall Clocks
+            </u-button>
+          </div>
+
+          <div class="flex flex-col items-center justify-center gap-2">
+            <img
+              src="https://picsum.photos/640/640?random=3"
+              alt="Category 3"
+              width="320"
+              height="320"
+              fetchpriority="high"
+            >
+            <u-button variant="outline" class="w-full justify-center">
+              Outdoors
+            </u-button>
+          </div>
+
+          <div class="flex flex-col items-center justify-center gap-2">
+            <img
+              src="https://picsum.photos/640/640?random=4"
+              alt="Category 4"
+              width="320"
+              height="320"
+              fetchpriority="high"
+            >
+            <u-button variant="outline" class="w-full justify-center">
+              Mantel Clocks
+            </u-button>
+          </div>
         </div>
       </div>
+    </u-container>
 
-      <!-- <div class="flex items-center justify-center gap-4">
-        <div class="flex flex-col items-center justify-center gap-2 cursor-pointer">
-          <img
-            src="https://picsum.photos/640/640?random=7"
-            alt="Category 1"
-            width="320"
-            height="320"
-            fetchpriority="high"
-          >
-          <p>Atlas Wall Clock in Gold</p>
-          <p>$55.00</p>
+    <div class="flex flex-col gap-4 items-center">
+      <u-container>
+        <div class="flex flex-col gap-4 p-12 text-center">
+          <h3 class="text-md font-bold uppercase">
+            Featured Collection
+          </h3>
+          <h2 class="text-4xl font-bold uppercase">
+            House Clocks
+          </h2>
         </div>
-        <div class="flex flex-col items-center justify-center gap-2 cursor-pointer">
-          <img
-            src="https://picsum.photos/640/640?random=8"
-            alt="Category 1"
-            width="320"
-            height="320"
-            fetchpriority="high"
-          >
-          <p>Atlas Wall Clock in Gold</p>
-          <p>$55.00</p>
+        <div class="relative w-full">
+          <div class="flex items-center gap-2">
+            <u-button
+              icon="i-lucide-chevron-left"
+              variant="ghost"
+              :disabled="!canPrev"
+              class="absolute top-1/2 -translate-y-1/2 left-2 shadow-md rounded-full w-10 h-10 flex items-center justify-center bg-white hover:bg-gray-100"
+              @click="prev"
+            />
+
+            <div class="grid grid-cols-4 gap-4 w-full">
+              <div
+                v-for="product in visibleProducts"
+                :key="product.id"
+                class="overflow-hidden shadow-sm hover:shadow-md transition cursor-pointer"
+              >
+                <img
+                  :src="product.image"
+                  :alt="product.name"
+                  class="w-full h-48 object-cover"
+                >
+                <div class="p-3 flex flex-col items-center">
+                  <h3 class="font-bold text-center truncate">
+                    {{ product.name }}
+                  </h3>
+                  <p class="text-sm text-gray-500">
+                    {{ product.price }}
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <u-button
+              icon="i-lucide-chevron-right"
+              variant="ghost"
+              :disabled="!canNext"
+              class="absolute top-1/2 -translate-y-1/2 right-2 shadow-md rounded-full w-10 h-10 flex items-center justify-center bg-white hover:bg-gray-100"
+              @click="next"
+            />
+          </div>
         </div>
-        <div class="flex flex-col items-center justify-center gap-2 cursor-pointer">
-          <img
-            src="https://picsum.photos/640/640?random=9"
-            alt="Category 1"
-            width="320"
-            height="320"
-            fetchpriority="high"
-          >
-          <p>Atlas Wall Clock in Gold</p>
-          <p>$55.00</p>
-        </div>
-        <div class="flex flex-col items-center justify-center gap-2 cursor-pointer">
-          <img
-            src="https://picsum.photos/640/640?random=10"
-            alt="Category 1"
-            width="320"
-            height="320"
-            fetchpriority="high"
-          >
-          <p>Atlas Wall Clock in Gold</p>
-          <p>$55.00</p>
-        </div>
-      </div> -->
+      </u-container>
 
       <u-button color="primary" class="w-[150px] justify-center">
         Shop Now
