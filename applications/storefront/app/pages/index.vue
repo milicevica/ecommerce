@@ -34,18 +34,18 @@ function next() {
 
 <template>
   <div class="flex flex-col gap-12">
-    <div class="w-full h-screen">
+    <div class="w-full">
       <u-carousel
         v-slot="{ item }"
         :items="items"
         autoplay
-        class="w-full h-screen"
+        class="w-full"
       >
-        <div class="relative w-full h-screen">
+        <div class="relative w-full h-[89vh]">
           <img
             :src="item.src"
             :alt="item.alt"
-            class="w-full h-screen object-cover"
+            class="w-full h-full object-cover"
             fetchpriority="high"
           >
 
