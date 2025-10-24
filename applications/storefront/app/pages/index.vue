@@ -3,6 +3,33 @@ const items = [
   { src: "https://picsum.photos/640/640?random=1", alt: "Slide 1" },
   { src: "https://picsum.photos/640/640?random=2", alt: "Slide 2" },
 ];
+
+const products = ref(Array.from({ length: 10 }, (_, i) => ({
+  id: i + 1,
+  name: `Product ${i + 1}`,
+  image: `https://picsum.photos/seed/product${i}/300/300`,
+  price: `$${(Math.random() * 90 + 10).toFixed(2)}`,
+})));
+
+const currentIndex = ref(0);
+const itemsPerPage = 4;
+
+const visibleProducts = computed(() => {
+  return products.value.slice(currentIndex.value, currentIndex.value + itemsPerPage);
+});
+
+const canPrev = computed(() => currentIndex.value > 0);
+const canNext = computed(() => currentIndex.value < products.value.length - itemsPerPage);
+
+function prev() {
+  if (canPrev.value)
+    currentIndex.value--;
+}
+
+function next() {
+  if (canNext.value)
+    currentIndex.value++;
+}
 </script>
 
 <template>
@@ -115,7 +142,49 @@ const items = [
         </h2>
       </div>
 
-      <div class="flex items-center justify-center gap-4">
+      <div class="relative w-full">
+        <div class="flex items-center gap-2">
+          <u-button
+            icon="i-lucide-chevron-left"
+            variant="ghost"
+            :disabled="!canPrev"
+            class="absolute top-1/2 -translate-y-1/2 left-2 shadow-md rounded-full w-10 h-10 flex items-center justify-center bg-white hover:bg-gray-100"
+            @click="prev"
+          />
+
+          <div class="grid grid-cols-4 gap-4 w-full">
+            <div
+              v-for="product in visibleProducts"
+              :key="product.id"
+              class="overflow-hidden shadow-sm hover:shadow-md transition cursor-pointer"
+            >
+              <img
+                :src="product.image"
+                :alt="product.name"
+                class="w-full h-48 object-cover"
+              >
+              <div class="p-3 flex flex-col items-center">
+                <h3 class="font-bold text-center truncate">
+                  {{ product.name }}
+                </h3>
+                <p class="text-sm text-gray-500">
+                  {{ product.price }}
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <u-button
+            icon="i-lucide-chevron-right"
+            variant="ghost"
+            :disabled="!canNext"
+            class="absolute top-1/2 -translate-y-1/2 right-2 shadow-md rounded-full w-10 h-10 flex items-center justify-center bg-white hover:bg-gray-100"
+            @click="next"
+          />
+        </div>
+      </div>
+
+      <!-- <div class="flex items-center justify-center gap-4">
         <div class="flex flex-col items-center justify-center gap-2 cursor-pointer">
           <img
             src="https://picsum.photos/640/640?random=7"
@@ -160,7 +229,7 @@ const items = [
           <p>Atlas Wall Clock in Gold</p>
           <p>$55.00</p>
         </div>
-      </div>
+      </div> -->
 
       <u-button color="primary" class="w-[150px] justify-center">
         Shop Now
