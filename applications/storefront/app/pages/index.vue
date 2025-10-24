@@ -8,7 +8,7 @@ const products = ref(Array.from({ length: 10 }, (_, i) => ({
   id: i + 1,
   name: `Product ${i + 1}`,
   image: `https://picsum.photos/seed/product${i}/300/300`,
-  price: `$${(Math.random() * 90 + 10).toFixed(2)}`,
+  price: `$${(i + 1) * 10}.00`,
 })));
 
 const currentIndex = ref(0);
