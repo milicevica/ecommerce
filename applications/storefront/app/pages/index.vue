@@ -262,5 +262,33 @@ function next() {
         Shop Now
       </u-button>
     </div>
+
+    <div class="w-full bg-gray-100">
+      <u-container>
+        <div class="flex gap-4 items-center justify-center">
+          <div class="flex flex-col items-center justify-center gap-4 p-12">
+            <u-icon name="tabler:truck-delivery" size="48" />
+            <h4 class="font-bold uppercase">
+              Free Delivery
+            </h4>
+            <p>2-3 Working Days on Orders Over $100</p>
+          </div>
+          <div class="flex flex-col items-center justify-center  gap-4 p-12">
+            <u-icon name="tabler:credit-card-pay" size="48" />
+            <h4 class="font-bold uppercase">
+              Secure Payment Gateway
+            </h4>
+            <p>Keeping You Safe At All Times</p>
+          </div>
+          <div class="flex flex-col items-center justify-center gap-4 p-12">
+            <u-icon name="tabler:brand-adobe-indesign" size="48" />
+            <h4 class="font-bold uppercase">
+              Quality Assured
+            </h4>
+            <p>Durable Materials & Expert Craftsmanship</p>
+          </div>
+        </div>
+      </u-container>
+    </div>
   </div>
 </template>
