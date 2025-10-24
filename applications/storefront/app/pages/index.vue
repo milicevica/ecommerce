@@ -104,5 +104,67 @@ const items = [
         </div>
       </div>
     </div>
+
+    <div class="flex flex-col gap-4 items-center">
+      <div class="flex flex-col gap-4 p-12 text-center">
+        <h3 class="text-md font-bold uppercase">
+          Featured Collection
+        </h3>
+        <h2 class="text-4xl font-bold uppercase">
+          House Clocks
+        </h2>
+      </div>
+
+      <div class="flex items-center justify-center gap-4">
+        <div class="flex flex-col items-center justify-center gap-2 cursor-pointer">
+          <img
+            src="https://picsum.photos/640/640?random=7"
+            alt="Category 1"
+            width="320"
+            height="320"
+            fetchpriority="high"
+          >
+          <p>Atlas Wall Clock in Gold</p>
+          <p>$55.00</p>
+        </div>
+        <div class="flex flex-col items-center justify-center gap-2 cursor-pointer">
+          <img
+            src="https://picsum.photos/640/640?random=8"
+            alt="Category 1"
+            width="320"
+            height="320"
+            fetchpriority="high"
+          >
+          <p>Atlas Wall Clock in Gold</p>
+          <p>$55.00</p>
+        </div>
+        <div class="flex flex-col items-center justify-center gap-2 cursor-pointer">
+          <img
+            src="https://picsum.photos/640/640?random=9"
+            alt="Category 1"
+            width="320"
+            height="320"
+            fetchpriority="high"
+          >
+          <p>Atlas Wall Clock in Gold</p>
+          <p>$55.00</p>
+        </div>
+        <div class="flex flex-col items-center justify-center gap-2 cursor-pointer">
+          <img
+            src="https://picsum.photos/640/640?random=10"
+            alt="Category 1"
+            width="320"
+            height="320"
+            fetchpriority="high"
+          >
+          <p>Atlas Wall Clock in Gold</p>
+          <p>$55.00</p>
+        </div>
+      </div>
+
+      <u-button color="primary" class="w-[150px] justify-center">
+        Shop Now
+      </u-button>
+    </div>
   </div>
 </template>
