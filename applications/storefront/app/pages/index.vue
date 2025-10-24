@@ -33,7 +33,7 @@ function next() {
 </script>
 
 <template>
-  <div class="flex flex-col gap-4">
+  <div class="flex flex-col gap-12">
     <div class="w-full h-screen">
       <u-carousel
         v-slot="{ item }"
@@ -142,6 +142,77 @@ function next() {
           </h3>
           <h2 class="text-4xl font-bold uppercase">
             House Clocks
+          </h2>
+        </div>
+        <div class="relative w-full">
+          <div class="flex items-center gap-2">
+            <u-button
+              icon="i-lucide-chevron-left"
+              variant="ghost"
+              :disabled="!canPrev"
+              class="absolute top-1/2 -translate-y-1/2 left-2 shadow-md rounded-full w-10 h-10 flex items-center justify-center bg-white hover:bg-gray-100"
+              @click="prev"
+            />
+
+            <div class="grid grid-cols-4 gap-4 w-full">
+              <div
+                v-for="product in visibleProducts"
+                :key="product.id"
+                class="overflow-hidden shadow-sm hover:shadow-md transition cursor-pointer"
+              >
+                <img
+                  :src="product.image"
+                  :alt="product.name"
+                  class="w-full h-48 object-cover"
+                >
+                <div class="p-3 flex flex-col items-center">
+                  <h3 class="font-bold text-center truncate">
+                    {{ product.name }}
+                  </h3>
+                  <p class="text-sm text-gray-500">
+                    {{ product.price }}
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <u-button
+              icon="i-lucide-chevron-right"
+              variant="ghost"
+              :disabled="!canNext"
+              class="absolute top-1/2 -translate-y-1/2 right-2 shadow-md rounded-full w-10 h-10 flex items-center justify-center bg-white hover:bg-gray-100"
+              @click="next"
+            />
+          </div>
+        </div>
+      </u-container>
+
+      <u-button color="primary" class="w-[150px] justify-center">
+        Shop Now
+      </u-button>
+    </div>
+
+    <div class="w-full h-[550px] relative">
+      <img
+        src="https://picsum.photos/1920/600?random=5"
+        alt="Promotional Banner"
+        class="w-full h-[550px] object-cover"
+        fetchpriority="high"
+      >
+
+      <h3 class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-4xl uppercase font-bold">
+        Our Story
+      </h3>
+    </div>
+
+    <div class="flex flex-col gap-4 items-center">
+      <u-container>
+        <div class="flex flex-col gap-4 p-12 text-center">
+          <h3 class="text-md font-bold uppercase">
+            SHOP
+          </h3>
+          <h2 class="text-4xl font-bold uppercase">
+            Our Best Sellers
           </h2>
         </div>
         <div class="relative w-full">
