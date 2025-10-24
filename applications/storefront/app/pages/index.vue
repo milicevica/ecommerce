@@ -59,7 +59,7 @@ const items = [
             height="320"
             fetchpriority="high"
           >
-          <u-button variant="outline" class="w-[250px] justify-center">
+          <u-button variant="outline" class="w-full justify-center">
             Living Room
           </u-button>
         </div>
@@ -72,7 +72,7 @@ const items = [
             height="320"
             fetchpriority="high"
           >
-          <u-button variant="outline" class="w-[250px] justify-center">
+          <u-button variant="outline" class="w-full justify-center">
             Large Wall Clocks
           </u-button>
         </div>
@@ -85,7 +85,7 @@ const items = [
             height="320"
             fetchpriority="high"
           >
-          <u-button variant="outline" class="w-[250px] justify-center">
+          <u-button variant="outline" class="w-full justify-center">
             Outdoors
           </u-button>
         </div>
@@ -98,7 +98,7 @@ const items = [
             height="320"
             fetchpriority="high"
           >
-          <u-button variant="outline" class="w-[250px] justify-center">
+          <u-button variant="outline" class="w-full justify-center">
             Mantel Clocks
           </u-button>
         </div>
