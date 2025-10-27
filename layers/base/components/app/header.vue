@@ -40,7 +40,7 @@ const actionMenu = computed<NavigationMenuItem[]>(() => [
   <div>
     <header-toolbar />
 
-    <u-header title="">
+    <u-header title="" class="border-b-0">
       <template #title>
         <u-dropdown-menu
           :items="items"
