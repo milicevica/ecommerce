@@ -1,4 +1,5 @@
 export type HeaderResponse = {
+  name: string,
   logo: string,
   categories: Category[]
 }
