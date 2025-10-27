@@ -1,7 +1,7 @@
 <script lang="ts" setup></script>
 
 <template>
-  <u-footer class="bg-amber-500/20 text-white">
+  <u-footer class="bg-accented">
     <template #left>
       <p class="text-muted text-sm uppercase">
         © {{ new Date().getFullYear() }} - ecommerce
