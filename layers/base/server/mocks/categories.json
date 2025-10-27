@@ -1,0 +1,17 @@
+[
+  {
+    "id": 1,
+    "name": "IT Shop",
+    "to": "/products/it-shop"
+  },
+  {
+    "id": 2,
+    "name": "TV, Audio & Video",
+    "to": "/products/tv-audio-video"
+  },
+  {
+    "id": 3,
+    "name": "Gaming",
+    "to": "/products/gaming"
+  }
+]

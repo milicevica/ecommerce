@@ -1,13 +1,13 @@
 <script lang="ts" setup>
 import type { NavigationMenuItem } from "@nuxt/ui";
-import type { HeaderResponse } from "../../shared/types/responses/header-response";
+import type { Category } from "../../shared/types/responses/category-response";
 
-const { data } = await useFetch<HeaderResponse>("/api/ecommerce/header");
+const { data } = await useFetch<Category[]>("/api/ecommerce/categories");
 
 useHead({
-  title: data.value?.name || "Ecommerce",
+  title: "Ecommerce",
   meta: [
-    { name: "description", content: data.value?.name || "Ecommerce" },
+    { name: "description", content: "Ecommerce" },
   ],
 });
 
@@ -34,7 +34,7 @@ const actionMenu = computed<NavigationMenuItem[]>(() => [
     <u-header title="" class="border-b-0">
       <template #title>
         <u-dropdown-menu
-          :items="data?.categories"
+          :items="data"
           label-key="name"
           :content="{ align: 'start' }"
           :ui="{ content: 'w-48' }"
