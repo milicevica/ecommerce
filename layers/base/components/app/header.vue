@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import type { NavigationMenuItem } from "@nuxt/ui";
-import type { Category } from "../../shared/types/responses/category-response";
+import type { Category } from "../../shared/types/responses/category";
 
 const { data } = await useFetch<Category[]>("/api/ecommerce/categories");
 
