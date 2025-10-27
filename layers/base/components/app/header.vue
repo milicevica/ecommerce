@@ -1,6 +1,10 @@
 <script lang="ts" setup>
 import type { NavigationMenuItem } from "@nuxt/ui";
 
+const { data } = await useFetch("/api/ecommerce/header");
+
+console.log("Data: ", data);
+
 useHead({
   title: "Ecommerce",
   meta: [
