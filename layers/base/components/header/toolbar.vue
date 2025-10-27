@@ -7,7 +7,7 @@ const { locale, setLocale } = useI18n();
 <template>
   <u-header class="border-b-0">
     <template #title>
-      ECOMMERCE
+     <header-logo />
     </template>
 
     <template #toggle>
