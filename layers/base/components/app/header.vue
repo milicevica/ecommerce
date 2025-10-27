@@ -1,10 +1,6 @@
 <script lang="ts" setup>
 import type { NavigationMenuItem } from "@nuxt/ui";
 
-import { en, fr } from "@nuxt/ui/locale";
-
-const { locale, setLocale } = useI18n();
-
 useHead({
   title: "Ecommerce",
   meta: [
