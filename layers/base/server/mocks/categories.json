@@ -1,22 +1,26 @@
 [
   {
     "id": 1,
-    "name": "IT Shop",
+    "label": "IT Shop",
+    "icon": "tabler:devices-pc",
     "to": "/products/it-shop"
   },
   {
     "id": 2,
-    "name": "TV, Audio & Video",
+    "label": "TV, Audio & Video",
+    "icon": "tabler:device-tv",
     "to": "/products/tv-audio-video"
   },
   {
     "id": 3,
-    "name": "Gaming",
+    "label": "Gaming",
+    "icon": "tabler:devices-pc",
     "to": "/products/gaming"
   },
   {
     "id": 4,
-    "name": "Sports",
+    "label": "Sports",
+    "icon": "tabler:ball-football",
     "to": "/products/sports"
   }
 ]

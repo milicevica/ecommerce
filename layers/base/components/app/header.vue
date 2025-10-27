@@ -25,6 +25,14 @@ const actionMenu = computed<NavigationMenuItem[]>(() => [
     icon: "tabler:shopping-bag",
   },
 ]);
+
+const items = ref([
+  {
+    label: "Store",
+    icon: "tabler:building-store",
+    children: data,
+  },
+])
 </script>
 
 <template>
@@ -32,21 +40,8 @@ const actionMenu = computed<NavigationMenuItem[]>(() => [
     <header-toolbar />
 
     <u-header title="" class="bg-accented border-b-0">
-      <template #title>
-        <u-dropdown-menu
-          :items="data"
-          label-key="name"
-          :content="{ align: 'start' }"
-          :ui="{ content: 'w-48' }"
-        >
-          <u-button
-            trailing-icon="tabler:arrow-down"
-            color="neutral"
-            variant="ghost"
-          >
-            Store
-          </u-button>
-        </u-dropdown-menu>
+      <template #left>
+        <u-navigation-menu :items="items" content-orientation="vertical" class="w-full" />
       </template>
 
       <template #body>
