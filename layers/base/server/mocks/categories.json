@@ -21,6 +21,23 @@
     "id": 4,
     "label": "Sports",
     "icon": "tabler:ball-football",
-    "to": "/products/sports"
+    "children": [
+      {
+        "id": 41,
+        "label": "Fitness",
+        "children": [
+          {
+            "id": 411,
+            "label": "Treadmills",
+            "to": "/products/fitness/treadmills"
+          },
+          {
+            "id": 412,
+            "label": "Exercise Bikes",
+            "to": "/products/fitness/exercise-bikes"
+          }
+        ]
+      }
+    ]
   }
 ]

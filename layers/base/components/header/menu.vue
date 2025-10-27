@@ -4,6 +4,8 @@ import type { Category } from "../../shared/types/responses/category";
 
 const { data } = await useFetch<Category[]>("/api/ecommerce/categories");
 
+console.log("Data: ", data.value);
+
 const actionMenu = computed<NavigationMenuItem[]>(() => [
   {
     label: "Search",
@@ -18,20 +20,14 @@ const actionMenu = computed<NavigationMenuItem[]>(() => [
     icon: "tabler:shopping-bag",
   },
 ]);
-
-const items = ref([
-  {
-    label: "Store",
-    icon: "tabler:building-store",
-    children: data,
-  },
-])
 </script>
 
 <template>
   <u-header title="" class="bg-accented border-b-0">
     <template #left>
-      <u-navigation-menu :items="items" content-orientation="vertical" class="w-full" />
+      <u-dropdown-menu :items="data" arrow>
+        <u-button color="neutral" variant="ghost" leading-icon="tabler:building-store">Store</u-button>
+      </u-dropdown-menu>
     </template>
 
     <template #body>
