@@ -31,7 +31,7 @@ const actionMenu = computed<NavigationMenuItem[]>(() => [
   <div>
     <header-toolbar />
 
-    <u-header title="" class="border-b-0">
+    <u-header title="" class="bg-accented border-b-0">
       <template #title>
         <u-dropdown-menu
           :items="data"
