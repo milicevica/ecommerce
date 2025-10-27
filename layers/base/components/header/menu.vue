@@ -4,7 +4,7 @@ import type { Category } from "../../shared/types/responses/category";
 
 const { data } = await useFetch<Category[]>("/api/ecommerce/categories");
 
-console.log("Data: ", data.value);
+const isOpen = ref(false);
 
 const actionMenu = computed<NavigationMenuItem[]>(() => [
   {
@@ -25,8 +25,16 @@ const actionMenu = computed<NavigationMenuItem[]>(() => [
 <template>
   <u-header title="" class="bg-accented border-b-0">
     <template #left>
-      <u-dropdown-menu :items="data" arrow>
-        <u-button color="neutral" variant="ghost" leading-icon="tabler:building-store">Store</u-button>
+      <u-dropdown-menu v-model:open="isOpen" :items="data">
+        <u-button color="neutral" variant="ghost">
+          <template #leading>
+            <u-icon name="tabler:building-store" />
+          </template>
+          Store
+          <template #trailing>
+            <u-icon :name="isOpen ? 'i-lucide-arrow-up' : 'i-lucide-arrow-down'" />
+          </template>
+        </u-button>
       </u-dropdown-menu>
     </template>
 
