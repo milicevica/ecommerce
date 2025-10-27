@@ -1,10 +1,13 @@
 <script lang="ts" setup>
 import type { NavigationMenuItem } from "@nuxt/ui";
-import type { Category } from "../../shared/types/responses/category";
+import type { Category } from "../../shared/types/category";
+import type { Product } from "../../shared/types/product";
 
 const { data } = await useFetch<Category[]>("/api/ecommerce/categories");
 
 const isOpen = ref(false);
+const searchTerm = ref("");
+const foundProducts = ref<Product[]>([]);
 
 const actionMenu = computed<NavigationMenuItem[]>(() => [
   {
@@ -20,6 +23,12 @@ const actionMenu = computed<NavigationMenuItem[]>(() => [
     icon: "tabler:shopping-bag",
   },
 ]);
+
+async function search() {
+  const data = await $fetch<Product[]>("/api/ecommerce/products?keyword=" + encodeURIComponent(searchTerm.value));
+
+  foundProducts.value = data || [];
+}
 </script>
 
 <template>
@@ -72,8 +81,14 @@ const actionMenu = computed<NavigationMenuItem[]>(() => [
                 </u-tooltip>
 
                 <template #body>
-                  <div class="flex w-full p-6">
-                    <u-input placeholder="Search For" class="w-full" />
+                  <div class="flex flex-col w-full p-6 gap-12">
+                    <u-input v-model="searchTerm" placeholder="Search For" class="w-full" @update:model-value="search" />
+
+                    <div v-if="foundProducts.length">
+                      <template v-for="product in foundProducts" :key="product.id">
+                        <p>{{ product.name }}</p>
+                      </template>
+                    </div>
                   </div>
                 </template>
               </u-slideover>

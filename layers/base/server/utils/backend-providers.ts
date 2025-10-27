@@ -1,5 +1,6 @@
-import type { Category } from "../../shared/types/responses/category";
+import type { Category } from "../../shared/types/category";
 import categories from "../mocks/categories.json";
+import products from "../mocks/products.json";
 
 type Transformer<T> = (raw: unknown) => T;
 
@@ -8,23 +9,37 @@ type Endpoint<T = unknown> = {
   path: string;
   responseTransformer?: Transformer<T>;
   requestTransformer?: Transformer<T>;
-  response?: unknown;
+  response?: (queryParams: string) => T[];
 }
 
-type Provider<C extends Category> = {
+type Provider<C extends Category, P extends Product> = {
   baseUrl: string;
   requests: {
     categories: Endpoint<C>;
+    products: Endpoint<P>;
   };
 };
 
-const defaultProvider: Provider<Category> = {
+const defaultProvider: Provider<Category, Product> = {
   baseUrl: "",
   requests: {
     categories: {
       method: "GET",
       path: "/categories",
-      response: categories
+      response: () => categories,
+    },
+    products: {
+      method: "GET",
+      path: "/products",
+      response: (queryParams) => {
+        const params = new URLSearchParams(queryParams);
+
+        console.log("Params: ", params);
+
+        if (params.get("keyword") == "") return [];
+
+        return products.filter((product) => product.name.includes(params.get("keyword") || ""));
+      }
     }
   }
 }
