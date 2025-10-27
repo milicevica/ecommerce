@@ -1,28 +1,15 @@
 <script lang="ts" setup>
 import type { NavigationMenuItem } from "@nuxt/ui";
+import type { HeaderResponse } from "../../shared/types/responses/header-response";
 
-const { data } = await useFetch("/api/ecommerce/header");
-
-console.log("Data: ", data);
+const { data } = await useFetch<HeaderResponse>("/api/ecommerce/header");
 
 useHead({
-  title: "Ecommerce",
+  title: data.value?.name || "Ecommerce",
   meta: [
-    { name: "description", content: "Ecommerce" },
+    { name: "description", content: data.value?.name || "Ecommerce" },
   ],
 });
-
-const items = ref([
-  {
-    label: "Wall Clocks",
-  },
-  {
-    label: "Cuckoo Clocks",
-  },
-  {
-    label: "Alarm Clocks",
-  },
-]);
 
 const actionMenu = computed<NavigationMenuItem[]>(() => [
   {
@@ -47,7 +34,8 @@ const actionMenu = computed<NavigationMenuItem[]>(() => [
     <u-header title="" class="border-b-0">
       <template #title>
         <u-dropdown-menu
-          :items="items"
+          :items="data?.categories"
+          label-key="name"
           :content="{ align: 'start' }"
           :ui="{ content: 'w-48' }"
         >
