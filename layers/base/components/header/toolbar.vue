@@ -23,14 +23,7 @@ const { locale, setLocale } = useI18n();
 
       <app-theme-toggle />
 
-      <u-tooltip text="Log In">
-        <u-button
-          color="neutral"
-          variant="ghost"
-          icon="tabler:user"
-          aria-label="Log In"
-        />
-      </u-tooltip>
+      <auth-log-in-button />
     </template>
   </u-header>
 </template>
