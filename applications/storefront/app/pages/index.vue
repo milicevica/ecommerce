@@ -33,7 +33,8 @@ function next() {
 </script>
 
 <template>
-  <div class="flex flex-col gap-12">
+  <p>index</p>
+  <!-- <div class="flex flex-col gap-12">
     <div class="w-full">
       <u-carousel
         v-slot="{ item }"
@@ -290,5 +291,5 @@ function next() {
         </div>
       </u-container>
     </div>
-  </div>
+  </div> -->
 </template>
