@@ -1,35 +1,35 @@
 <script lang="ts" setup>
-const items = [
-  { src: "https://picsum.photos/640/640?random=1", alt: "Slide 1" },
-  { src: "https://picsum.photos/640/640?random=2", alt: "Slide 2" },
-];
+// const items = [
+//   { src: "https://picsum.photos/640/640?random=1", alt: "Slide 1" },
+//   { src: "https://picsum.photos/640/640?random=2", alt: "Slide 2" },
+// ];
 
-const products = ref(Array.from({ length: 10 }, (_, i) => ({
-  id: i + 1,
-  name: `Product ${i + 1}`,
-  image: `https://picsum.photos/seed/product${i}/300/300`,
-  price: `$${(i + 1) * 10}.00`,
-})));
+// const products = ref(Array.from({ length: 10 }, (_, i) => ({
+//   id: i + 1,
+//   name: `Product ${i + 1}`,
+//   image: `https://picsum.photos/seed/product${i}/300/300`,
+//   price: `$${(i + 1) * 10}.00`,
+// })));
 
-const currentIndex = ref(0);
-const itemsPerPage = 4;
+// const currentIndex = ref(0);
+// const itemsPerPage = 4;
 
-const visibleProducts = computed(() => {
-  return products.value.slice(currentIndex.value, currentIndex.value + itemsPerPage);
-});
+// const visibleProducts = computed(() => {
+//   return products.value.slice(currentIndex.value, currentIndex.value + itemsPerPage);
+// });
 
-const canPrev = computed(() => currentIndex.value > 0);
-const canNext = computed(() => currentIndex.value < products.value.length - itemsPerPage);
+// const canPrev = computed(() => currentIndex.value > 0);
+// const canNext = computed(() => currentIndex.value < products.value.length - itemsPerPage);
 
-function prev() {
-  if (canPrev.value)
-    currentIndex.value--;
-}
+// function prev() {
+//   if (canPrev.value)
+//     currentIndex.value--;
+// }
 
-function next() {
-  if (canNext.value)
-    currentIndex.value++;
-}
+// function next() {
+//   if (canNext.value)
+//     currentIndex.value++;
+// }
 </script>
 
 <template>
