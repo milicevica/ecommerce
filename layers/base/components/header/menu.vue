@@ -25,7 +25,12 @@ const actionMenu = computed<NavigationMenuItem[]>(() => [
 ]);
 
 async function search() {
-  const data = await $fetch<Product[]>("/api/ecommerce/products?keyword=" + encodeURIComponent(searchTerm.value));
+  if (searchTerm.value == "") {
+    foundProducts.value = [];
+    return;
+  }
+
+  const data = await $fetch<Product[]>("/api/ecommerce/products?name_like=" + encodeURIComponent(searchTerm.value));
 
   foundProducts.value = data || [];
 }

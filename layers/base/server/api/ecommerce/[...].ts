@@ -1,6 +1,8 @@
+import { joinURL } from "ufo";
+
 import { providers } from "../../utils/backend-providers";
 
-export default defineCachedEventHandler(async (event) => {
+export default defineEventHandler(async (event) => {
   // Remove the `/ecommerce/api` prefix from the path
   const targetPath = event.path.replace(/^\/api\/ecommerce\//, "");
   const targetPathWithoutQueryParams = targetPath.split("?")[0];
@@ -21,9 +23,30 @@ export default defineCachedEventHandler(async (event) => {
     throw createError({ statusCode: 400, statusMessage: "Requested endpoint not found in backend provider" });
   }
 
-  if (requestToExecute.response) {
-    return requestToExecute.response(targetPathQueryParams);
+  // Set the request target utilizing tenant's provider external API's base URL
+  const target = joinURL(provider.baseUrl, `${requestToExecute.path}?${targetPathQueryParams}`);
+
+  const requestBody = ["PATCH", "POST", "PUT", "DELETE"].includes(event.method) ? await readRawBody(event, false) : undefined;
+
+  console.log("Target: ", target);
+
+  const response = await $fetch(target, {
+    method: event.method,
+    body: requestBody,
+    responseType: "json",
+    headers: {
+      // Add necessary request headers as needed
+      // e.g `Cookie`, `Accept`, `Content-Type`, etc.
+    },
+  });
+
+  if (!requestToExecute.responseTransformer)
+    return response;
+
+  if (Array.isArray(response)) {
+    const transformedResponse = response.map(item => requestToExecute.responseTransformer!(item));
+    return transformedResponse;
   }
 
-  return {}
+  return requestToExecute.responseTransformer(response);
 });
