@@ -28,8 +28,6 @@ export default defineEventHandler(async (event) => {
 
   const requestBody = ["PATCH", "POST", "PUT", "DELETE"].includes(event.method) ? await readRawBody(event, false) : undefined;
 
-  console.log("Target: ", target);
-
   const response = await $fetch(target, {
     method: event.method,
     body: requestBody,
