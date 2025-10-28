@@ -48,6 +48,13 @@ const tabs = ref<TabsItem[]>([
     slot: "orders",
   }
 ]);
+
+function handleSearchToggle(isClosed: boolean) {
+  if (!isClosed) {
+    searchTerm.value = "";
+    foundProducts.value = [];
+  }
+}
 </script>
 
 <template>
@@ -86,7 +93,7 @@ const tabs = ref<TabsItem[]>([
               </u-slideover>
             </template>
             <template v-else-if="item.label === 'Search'">
-              <u-slideover side="top" title="Search">
+              <u-slideover side="top" title="Search" @update:open="handleSearchToggle">
                 <u-tooltip :text="item.label">
                   <u-button color="neutral" variant="ghost" :icon="item.icon" :aria-label="item.label" />
                 </u-tooltip>

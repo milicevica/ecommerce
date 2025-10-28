@@ -4,6 +4,7 @@ definePageMeta({
     { label: "Store", to: "/" },
   ],
 });
+
 // const items = [
 //   { src: "https://picsum.photos/640/640?random=1", alt: "Slide 1" },
 //   { src: "https://picsum.photos/640/640?random=2", alt: "Slide 2" },
