@@ -1,7 +1,9 @@
 <script lang="ts" setup>
 import type { NavigationMenuItem, TabsItem } from "@nuxt/ui";
 import type { Product } from "../../shared/types/product";
+import { useCartStore } from "../../stores/use-cart-store";
 
+const cartStore = useCartStore();
 const searchTerm = ref("");
 const foundProducts = ref<Product[]>([]);
 
@@ -71,7 +73,7 @@ const tabs = ref<TabsItem[]>([
             <template v-if="item.label === 'Cart'">
               <u-slideover title="My Cart">
                 <u-tooltip :text="$t('cart')">
-                  <u-chip color="info" :show="true" :text="5" size="3xl" inset>
+                  <u-chip color="info" :show="cartStore.numberOfItemsInCart > 0" :text="cartStore.numberOfItemsInCart" size="3xl" inset>
                     <u-button color="neutral" variant="ghost" to="/" :icon="item.icon" :aria-label="item.label" />
                   </u-chip>
                 </u-tooltip>
