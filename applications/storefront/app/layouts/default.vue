@@ -12,6 +12,7 @@ useHead(() => ({
   <div id="default-layout">
     <app-message />
     <app-header />
+    <app-breadcrumb />
 
     <u-main>
       <slot />
