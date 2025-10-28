@@ -23,11 +23,13 @@ useHead(() => ({
   <div id="default-layout">
     <app-message />
     <app-header />
-    <app-breadcrumb />
 
-    <u-main>
-      <slot />
-    </u-main>
+    <u-container>
+      <app-breadcrumb />
+      <u-main>
+        <slot />
+      </u-main>
+    </u-container>
 
     <app-footer />
   </div>

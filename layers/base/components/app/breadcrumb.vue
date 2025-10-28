@@ -5,7 +5,7 @@ const store = useBreadcrumbStore();
 </script>
 
 <template>
-  <u-breadcrumb :items="store.getBreadcrumbs" class="mt-2 px-4 sm:px-6 lg:px-8">
+  <u-breadcrumb :items="store.getBreadcrumbs" class="mt-2">
     <template #separator>
       <span class="mx-2 text-muted">/</span>
     </template>
