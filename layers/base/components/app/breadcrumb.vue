@@ -1,21 +1,11 @@
 <script lang="ts" setup>
-import type { BreadcrumbItem } from "@nuxt/ui";
+import { useBreadcrumbStore } from "../../stores/use-breadcrumb-store";
 
-const items: BreadcrumbItem[] = [
-  {
-    label: "",
-    icon: "tabler:home",
-    to: "/",
-  },
-  {
-    label: "Store",
-    to: "/products"
-  }
-];
+const store = useBreadcrumbStore();
 </script>
 
 <template>
-  <u-breadcrumb :items="items" class="mt-2 px-4 sm:px-6 lg:px-8">
+  <u-breadcrumb :items="store.getBreadcrumbs" class="mt-2 px-4 sm:px-6 lg:px-8">
     <template #separator>
       <span class="mx-2 text-muted">/</span>
     </template>
