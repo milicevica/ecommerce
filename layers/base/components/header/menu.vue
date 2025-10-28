@@ -92,14 +92,33 @@ const tabs = ref<TabsItem[]>([
                     <u-input v-model="searchTerm" placeholder="Search For" class="w-full" @update:model-value="search" />
 
                     <template v-if="searchTerm.length">
-                      <div class="flex gap-8 w-full items-start">
-                        <div class="flex w-full">
+                      <div class="flex flex-col gap-8 w-full items-start">
+                        <div class="flex flex-col gap-4">
                           <u-tabs :items="tabs" :unmount-on-hide="false" size="xl" variant="link" class="w-full mx-autol">
                             <template #products>
                               <div v-if="foundProducts.length">
-                                <template v-for="product in foundProducts" :key="product.id">
-                                  <p>{{ product.name }}</p>
-                                </template>
+                                <div class="grid grid-cols-4 gap-4 w-full">
+                                  <div
+                                    v-for="product in foundProducts"
+                                    :key="product.id"
+                                    class="overflow-hidden shadow-sm hover:shadow-md transition cursor-pointer"
+                                  >
+                                    <img
+                                      src="https://placehold.co/600x400"
+                                      :alt="product.name"
+                                      class="w-full h-48 object-cover"
+                                    >
+
+                                    <div class="p-3 flex flex-col items-center">
+                                      <h3 class="font-bold text-center truncate">
+                                        {{ product.name }}
+                                      </h3>
+                                      <p class="text-sm text-gray-500">
+                                        $42.00
+                                      </p>
+                                    </div>
+                                  </div>
+                                </div>
                               </div>
                               <div v-else>
                                 <p>No results could be found. Please try again with a different query.</p>
@@ -114,6 +133,11 @@ const tabs = ref<TabsItem[]>([
                               <p>No results could be found. Please try again with a different query.</p>
                             </template>
                           </u-tabs>
+                        </div>
+                        <div class="flex items-center justify-center w-full">
+                          <u-button>
+                            View All Results
+                          </u-button>
                         </div>
                       </div>
                     </template>
