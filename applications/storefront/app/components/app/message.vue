@@ -1,7 +1,7 @@
 <script lang="ts" setup></script>
 
 <template>
-  <u-banner color="info">
+  <u-banner color="info" close>
     <template #title>
       <div class="flex items-center justify-center gap-2">
         <u-icon name="tabler:truck-delivery" size="24" />
