@@ -5,6 +5,8 @@ import { useCartStore } from "../../stores/use-cart-store";
 
 const cartStore = useCartStore();
 const searchTerm = ref("");
+const inputRef = useTemplateRef("inputRef");
+
 const foundProducts = ref<Product[]>([]);
 
 const actionMenu = computed<NavigationMenuItem[]>(() => [
@@ -55,6 +57,10 @@ function handleSearchToggle(isClosed: boolean) {
     foundProducts.value = [];
   }
 }
+
+function handleSlideoverEnter() {
+  inputRef.value?.inputRef?.focus()
+}
 </script>
 
 <template>
@@ -93,14 +99,14 @@ function handleSearchToggle(isClosed: boolean) {
               </u-slideover>
             </template>
             <template v-else-if="item.label === 'Search'">
-              <u-slideover side="top" title="Search" @update:open="handleSearchToggle">
+              <u-slideover side="top" title="Search" @update:open="handleSearchToggle" @after:enter="handleSlideoverEnter">
                 <u-tooltip :text="item.label">
                   <u-button color="neutral" variant="ghost" :icon="item.icon" :aria-label="item.label" />
                 </u-tooltip>
 
                 <template #body>
                   <div class="flex flex-col w-full p-6 gap-8">
-                    <u-input v-model="searchTerm" placeholder="Search For" class="w-full" @update:model-value="search" />
+                    <u-input ref="inputRef" v-model="searchTerm" placeholder="Search For" class="w-full" @update:model-value="search" />
 
                     <template v-if="searchTerm.length">
                       <div class="flex flex-col gap-8 w-full items-start">
