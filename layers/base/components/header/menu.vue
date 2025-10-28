@@ -1,11 +1,7 @@
 <script lang="ts" setup>
 import type { NavigationMenuItem } from "@nuxt/ui";
-import type { Category } from "../../shared/types/category";
 import type { Product } from "../../shared/types/product";
 
-const { data } = await useFetch<Category[]>("/api/ecommerce/categories");
-
-const isOpen = ref(false);
 const searchTerm = ref("");
 const foundProducts = ref<Product[]>([]);
 
@@ -39,17 +35,7 @@ async function search() {
 <template>
   <u-header title="" class="bg-accented border-b-0">
     <template #left>
-      <u-dropdown-menu v-model:open="isOpen" :items="data">
-        <u-button color="neutral" variant="ghost">
-          <template #leading>
-            <u-icon name="tabler:building-store" />
-          </template>
-          Store
-          <template #trailing>
-            <u-icon :name="isOpen ? 'i-lucide-arrow-up' : 'i-lucide-arrow-down'" />
-          </template>
-        </u-button>
-      </u-dropdown-menu>
+      <header-store-menu />
     </template>
 
     <template #body>
