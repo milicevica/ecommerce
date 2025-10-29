@@ -4,7 +4,7 @@ export const useAuthStore = defineStore("auth", {
     isAuthenticated: (state) => state.user !== null,
   },
   actions: {
-    logIn() {
+    async logIn(email: string, password: string) {
       this.user = { id: 1, name: "John Doe", email: "john.doe@gmail.com" };
     },
     logOut() {

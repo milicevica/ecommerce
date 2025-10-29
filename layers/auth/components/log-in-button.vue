@@ -1,4 +1,7 @@
 <script lang="ts" setup>
+import { useAuthStore } from '../stores/use-auth-store';
+
+const authStore = useAuthStore();
 const modalEl = useTemplateRef("modalEl");
 
 function openLogInModal() {
@@ -7,7 +10,7 @@ function openLogInModal() {
 </script>
 
 <template>
-  <u-tooltip text="Log In">
+  <u-tooltip v-if="!authStore.isAuthenticated" text="Log In">
     <u-button color="neutral" variant="ghost" icon="tabler:user" aria-label="Log In" @click="openLogInModal" />
 
     <app-modal id="log-in-modal" ref="modalEl">
@@ -16,8 +19,12 @@ function openLogInModal() {
       </template>
 
       <template #body>
-        <log-in-form />
+        <log-in-form @log-in-success="() => modalEl?.close()" />
       </template>
     </app-modal>
   </u-tooltip>
+
+  <u-button v-else color="neutral" variant="ghost" aria-label="Settings Menu">
+    <u-avatar src="https://avatars.githubusercontent.com/u/105207977" size="xs" />
+  </u-button>
 </template>

@@ -3,6 +3,10 @@ import * as z from "zod";
 import type { FormSubmitEvent } from '@nuxt/ui'
 import { useAuthStore } from "../stores/use-auth-store";
 
+const emits = defineEmits<{
+  (e: 'log-in-success'): void
+}>();
+
 const store = useAuthStore();
 
 const schema = z.object({
@@ -18,7 +22,9 @@ const state = reactive<Partial<Schema>>({
 });
 
 async function onSubmit(event: FormSubmitEvent<Schema>) {
-  store.logIn();
+  await store.logIn(event.data.email, event.data.password);
+
+  emits('log-in-success');
 }
 </script>
 
