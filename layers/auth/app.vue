@@ -1,3 +1,3 @@
 <template>
-  <HelloWorld />
+  <p>Auth Layer</p>
 </template>
