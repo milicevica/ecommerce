@@ -9,11 +9,9 @@
     </template>
 
     <template #right>
-      <client-only>
-        <search-btn />
-        <whishlist-icon />
-        <cart-icon />
-      </client-only>
+      <search-btn />
+      <whishlist-icon />
+      <cart-icon />
     </template>
   </u-header>
 </template>
