@@ -18,11 +18,6 @@ function openLogInModal() {
       <template #body>
         <log-in-form />
       </template>
-
-      <template #footer>
-        <u-button variant="outline">Sign Up</u-button>
-        <u-button>Log In</u-button>
-      </template>
     </app-modal>
   </u-tooltip>
 </template>
