@@ -1,8 +1,9 @@
 export const useSearchStore = defineStore("search", {
-  state: () => ({ searchTerm: "", products: [] as Array<Product>, categories: [] as Array<Category>, orders: [] }),
+  state: () => ({ searchTerm: "", products: [] as Array<Product>, categories: [] as Array<Category>, orders: [] as Array<Order> }),
   getters: {
     getFoundProducts: (state) => state.products.slice(0, 4),
-    getFoundCategories: (state) => state.categories.slice(0, 4)
+    getFoundCategories: (state) => state.categories.slice(0, 4),
+    getFoundOrders: (state) => state.orders.slice(0, 4),
   },
   actions: {
     resetStoreData() {
@@ -20,10 +21,16 @@ export const useSearchStore = defineStore("search", {
 
       this.categories = data || [];
     },
+    async searchOrders() {
+      const data = await $fetch<Order[]>("/api/ecommerce/orders?orderNumber_like=" + encodeURIComponent(this.searchTerm));
+
+      this.orders = data || [];
+    },
     async search() {
       await Promise.all([
         this.searchCategories(),
-        this.searchProducts()
+        this.searchProducts(),
+        this.searchOrders()
       ])
     }
   }

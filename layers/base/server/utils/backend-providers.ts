@@ -9,15 +9,16 @@ type Endpoint<T = unknown> = {
   requestTransformer?: Transformer<T>;
 }
 
-type Provider<C extends Category, P extends Product> = {
+type Provider<C extends Category, P extends Product, O extends Order> = {
   baseUrl: string;
   requests: {
     categories: Endpoint<C>;
     products: Endpoint<P>;
+    orders: Endpoint<O>;
   };
 };
 
-const defaultProvider: Provider<Category, Product> = {
+const defaultProvider: Provider<Category, Product, Order> = {
   baseUrl: "http://localhost:4000",
   requests: {
     categories: {
@@ -27,6 +28,10 @@ const defaultProvider: Provider<Category, Product> = {
     products: {
       method: "GET",
       path: "/products",
+    },
+    orders: {
+      method: "GET",
+      path: "/orders"
     }
   }
 }
