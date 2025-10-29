@@ -81,7 +81,7 @@ function handleSlideoverEnter() {
 
     <template #right>
       <client-only>
-        <header-search />
+        <search-btn />
         <u-navigation-menu :items="actionMenu" class="hidden lg:flex">
           <template #item="{ item }">
             <template v-if="item.label === 'Cart'">

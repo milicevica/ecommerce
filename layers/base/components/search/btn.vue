@@ -7,7 +7,10 @@
     </u-tooltip>
 
     <template #body>
-      Search
+      <div class="flex flex-col w-full p-6 gap-8">
+        <search-input />
+        <search-result />
+      </div>
     </template>
   </u-slideover>
 </template>
