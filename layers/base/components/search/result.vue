@@ -16,17 +16,23 @@ const resultTabs = ref<TabsItem[]>([
     <div class="flex flex-col gap-4">
       <u-tabs :items="resultTabs" :unmount-on-hide="false" size="xl" variant="link" class="w-full mx-auto">
         <template #products>
-          Products
+          <search-products-result />
         </template>
 
         <template #categories>
-          Categories
+          <search-categories-result />
         </template>
 
         <template #orders>
-          Orders
+          <search-orders-result />
         </template>
       </u-tabs>
+    </div>
+
+    <div class="flex items-center justify-center w-full">
+      <u-button>
+        View All Results
+      </u-button>
     </div>
   </div>
 </template>
