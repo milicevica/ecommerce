@@ -10,7 +10,7 @@ function openLogInModal() {
 
 const accountMenu = [
   [{ label: "Profile", icon: "tabler:user-cog" }],
-  [{ label: "Log Out", icon: "tabler:logout" }]
+  [{ label: "Log Out", icon: "tabler:logout", onSelect: () => authStore.logOut() }]
 ]
 </script>
 
