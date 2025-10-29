@@ -12,7 +12,7 @@ export const useSearchStore = defineStore("search", {
       this.products = data || [];
     },
     async searchCategories() {
-      const data = await $fetch<Category[]>("/api/ecommerce/categories?label_like=" + encodeURIComponent(this.searchTerm));
+      const data = await $fetch<Category[]>("/api/ecommerce/categories?name_like=" + encodeURIComponent(this.searchTerm));
 
       this.categories = data || [];
     },
