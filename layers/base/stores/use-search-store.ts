@@ -1,5 +1,9 @@
 export const useSearchStore = defineStore("search", {
   state: () => ({ searchTerm: "", products: [] as Array<Product>, categories: [] as Array<Category>, orders: [] }),
+  getters: {
+    getFoundProducts: (state) => state.products.slice(0, 4),
+    getFoundCategories: (state) => state.categories.slice(0, 4)
+  },
   actions: {
     resetStoreData() {
       this.products = [];

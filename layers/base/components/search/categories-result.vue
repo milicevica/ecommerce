@@ -7,7 +7,7 @@ const store = useSearchStore();
 <template>
   <div v-if="store.categories.length" class="grid grid-cols-4 gap-4 w-full">
     <div
-      v-for="category in store.categories"
+      v-for="category in store.getFoundCategories"
       :key="category.id"
       class="overflow-hidden shadow-sm hover:shadow-md transition cursor-pointer"
     >

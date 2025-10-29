@@ -7,7 +7,7 @@ const store = useSearchStore();
 <template>
   <div v-if="store.products.length" class="grid grid-cols-4 gap-4 w-full">
     <div
-      v-for="product in store.products"
+      v-for="product in store.getFoundProducts"
       :key="product.id"
       class="overflow-hidden shadow-sm hover:shadow-md transition cursor-pointer"
     >
