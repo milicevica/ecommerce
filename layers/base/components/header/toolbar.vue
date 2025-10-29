@@ -23,7 +23,7 @@ const { locale, setLocale } = useI18n();
 
       <app-theme-toggle />
 
-      <auth-log-in-button />
+      <log-in-button />
     </template>
   </u-header>
 </template>
