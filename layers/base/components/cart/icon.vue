@@ -17,5 +17,11 @@ const store = useCartStore();
         <u-button color="neutral" variant="ghost" to="/" icon="tabler:shopping-bag" :aria-label="$t('cart')" />
       </u-chip>
     </u-tooltip>
+
+    <template #body>
+      <div class="h-full flex items-center justify-center font-bold uppercase">
+        {{ $t("cartEmpty") }}
+      </div>
+    </template>
   </u-slideover>
 </template>
