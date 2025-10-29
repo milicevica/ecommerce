@@ -26,15 +26,18 @@
         {
           "id": 41,
           "label": "Fitness",
+          "icon": "tabler:gymnastics",
           "children": [
             {
               "id": 411,
               "label": "Treadmills",
+              "icon": "tabler:run",
               "to": "/products/fitness/treadmills"
             },
             {
               "id": 412,
               "label": "Exercise Bikes",
+              "icon": "tabler:bike",
               "to": "/products/fitness/exercise-bikes"
             }
           ]
