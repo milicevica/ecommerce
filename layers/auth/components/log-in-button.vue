@@ -7,6 +7,11 @@ const modalEl = useTemplateRef("modalEl");
 function openLogInModal() {
   modalEl.value?.open();
 }
+
+const accountMenu = [
+  [{ label: "Profile", icon: "tabler:user-cog" }],
+  [{ label: "Log Out", icon: "tabler:logout" }]
+]
 </script>
 
 <template>
@@ -24,7 +29,9 @@ function openLogInModal() {
     </app-modal>
   </u-tooltip>
 
-  <u-button v-else color="neutral" variant="ghost" aria-label="Settings Menu">
-    <u-avatar src="https://avatars.githubusercontent.com/u/105207977" size="xs" />
-  </u-button>
+  <u-dropdown-menu v-else :items="accountMenu">
+    <u-button color="neutral" variant="ghost" aria-label="Settings Menu">
+      <u-avatar src="https://avatars.githubusercontent.com/u/105207977" size="xs" />
+    </u-button>
+  </u-dropdown-menu>
 </template>
