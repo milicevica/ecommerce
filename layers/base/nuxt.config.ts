@@ -2,5 +2,5 @@
 export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: ["@pinia/nuxt"],
-  extends: ["../ui", "../i18n"]
+  extends: ["../ui", "../i18n", "../auth"]
 })
