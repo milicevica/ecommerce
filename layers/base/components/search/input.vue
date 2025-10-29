@@ -8,8 +8,10 @@ onMounted(() => {
   store.searchTerm = "";
   store.products = [];
 
-  inputRef.value?.inputRef?.focus();
-})
+  setTimeout(() => {
+    inputRef.value?.inputRef?.focus();
+  }, 250)
+});
 </script>
 
 <template>

@@ -12,7 +12,7 @@ const resultTabs = ref<TabsItem[]>([
 </script>
 
 <template>
-  <div v-if="store.searchTerm.length" class="flex flex-col gap-8 w-full items-start">
+  <div v-show="store.searchTerm.length" class="flex flex-col gap-8 w-full items-start">
     <div class="flex flex-col gap-4">
       <u-tabs :items="resultTabs" :unmount-on-hide="false" size="xl" variant="link" class="w-full mx-auto">
         <template #products>
