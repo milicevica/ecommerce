@@ -1,6 +1,9 @@
 <script lang="ts" setup>
 import * as z from "zod";
 import type { FormSubmitEvent } from '@nuxt/ui'
+import { useAuthStore } from "../stores/use-auth-store";
+
+const store = useAuthStore();
 
 const schema = z.object({
   email: z.email("Invalid email"),
@@ -15,7 +18,7 @@ const state = reactive<Partial<Schema>>({
 });
 
 async function onSubmit(event: FormSubmitEvent<Schema>) {
-  console.log("Form submitted: ", event.data);
+  store.logIn();
 }
 </script>
 
