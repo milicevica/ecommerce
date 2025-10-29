@@ -15,5 +15,5 @@ onMounted(() => {
 </script>
 
 <template>
-  <u-input ref="inputRef" v-model="store.searchTerm" placeholder="Search For" class="w-full" @update:model-value="store.searchProducts" />
+  <u-input ref="inputRef" v-model="store.searchTerm" placeholder="Search For" class="w-full" @update:model-value="store.search" />
 </template>

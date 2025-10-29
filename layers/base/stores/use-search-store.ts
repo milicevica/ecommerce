@@ -7,14 +7,20 @@ export const useSearchStore = defineStore("search", {
       this.orders = [];
     },
     async searchProducts() {
-      if (this.searchTerm == "") {
-        this.resetStoreData();
-        return;
-      }
-
       const data = await $fetch<Product[]>("/api/ecommerce/products?name_like=" + encodeURIComponent(this.searchTerm));
 
       this.products = data || [];
+    },
+    async searchCategories() {
+      const data = await $fetch<Category[]>("/api/ecommerce/categories?label_like=" + encodeURIComponent(this.searchTerm));
+
+      this.categories = data || [];
+    },
+    async search() {
+      await Promise.all([
+        this.searchCategories(),
+        this.searchProducts()
+      ])
     }
   }
 })
