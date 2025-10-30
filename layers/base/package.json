@@ -12,12 +12,12 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix"
   },
+  "peerDependencies": {
+    "@nuxt/ui": "^4.0.1"
+  },
   "dependencies": {
     "@pinia/nuxt": "^0.11.2",
     "pinia": "^3.0.3"
-  },
-  "peerDependencies": {
-    "@nuxt/ui": "^4.0.1"
   },
   "devDependencies": {
     "@nuxt/eslint": "latest",
