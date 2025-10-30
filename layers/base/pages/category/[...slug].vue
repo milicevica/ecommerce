@@ -10,29 +10,25 @@ const getCategoryName = computed(() => {
 </script>
 
 <template>
-  <div class="flex flex-col">
-    <div class="flex items-center justify-center p-6">
-      <h2 class="text-3xl font-bold uppercase">
+  <div class="w-full flex flex-col">
+    <div class="flex items-center justify-center py-8">
+      <h1 class="text-3xl font-bold uppercase">
         {{ getCategoryName }}
-      </h2>
+      </h1>
     </div>
-    <div class="flex gap-4 items-center justify-between p-6">
-      <div class="flex gap-2">
-        <u-icon name="tabler:grid-dots" size="32" />
-        <u-icon name="tabler:list" size="32" />
-        <u-icon name="tabler:list-check" size="32" />
+    <div class="flex justify-between border">
+      <div class="flex items-center gap-4 px-8 py-4" style="border-right: 1px solid;">
+        <u-icon name="tabler:grid-dots" size="24" />
+        <u-icon name="tabler:list" size="24" />
       </div>
-      <div class="flex gap-4 p-6">
-        <u-button variant="ghost">
+      <div class="flex">
+        <div class="px-8 py-4" style="border-left: 1px solid; border-right: 1px solid;">
           Sort By
-        </u-button>
-        <u-button variant="ghost" leading-icon="tabler:filter">
+        </div>
+        <div class="px-8 py-4">
           Filter
-        </u-button>
+        </div>
       </div>
-    </div>
-    <div>
-      <p>Proizvodi</p>
     </div>
   </div>
 </template>
