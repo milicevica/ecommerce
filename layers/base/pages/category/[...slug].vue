@@ -108,18 +108,66 @@ const sorts = [
 
     <u-separator />
 
-    <div :class="`grid gap-4 w-full grid-cols-${grid} mt-6`">
-      <div class="overflow-hidden">
-        Product 1
+    <div :class="`grid gap-12 w-full grid-cols-${grid} mt-6`">
+      <div class="cursor-pointer">
+        <img
+          src="https://placehold.co/600x400"
+          alt="Product 1"
+          class="w-full object-cover"
+        >
+
+        <h3 class="font-normal text-center">
+          Product 1
+        </h3>
+
+        <p class="font-bold text-lg text-center">
+          $80.00
+        </p>
       </div>
-      <div class="overflow-hidden">
-        Product 2
+      <div class="cursor-pointer">
+        <img
+          src="https://placehold.co/600x400"
+          alt="Product 2"
+          class="w-full object-cover"
+        >
+
+        <h3 class="font-normal text-center">
+          Product 2
+        </h3>
+
+        <p class="font-bold text-lg text-center">
+          $77.00
+        </p>
       </div>
-      <div class="overflow-hidden">
-        Product 3
+      <div class="cursor-pointer">
+        <img
+          src="https://placehold.co/600x400"
+          alt="Product 3"
+          class="w-full object-cover"
+        >
+
+        <h3 class="font-normal text-center">
+          Product 3
+        </h3>
+
+        <p class="font-bold text-lg text-center">
+          $39.00
+        </p>
       </div>
-      <div class="overflow-hidden">
-        Product 4
+      <div class="cursor-pointer">
+        <img
+          src="https://placehold.co/600x400"
+          alt="Product 4"
+          class="w-full object-cover"
+        >
+
+        <h3 class="font-normal text-center">
+          Product 4
+        </h3>
+
+        <p class="font-bold text-lg text-center">
+          $95.00
+        </p>
       </div>
     </div>
   </div>
