@@ -88,6 +88,7 @@ const sorts = [
             <u-button
               color="neutral"
               variant="ghost"
+              leading-icon="tabler:filter"
               class="px-8 py-4 h-full cursor-pointer"
             >
               Filter
