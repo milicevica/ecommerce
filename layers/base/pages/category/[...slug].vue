@@ -48,7 +48,7 @@ const sorts = [
           icon="tabler:grid-dots"
           color="neutral"
           variant="ghost"
-          class="px-8 py-4 cursor-pointer"
+          class="px-8 py-4 cursor-pointer rounded-none"
           @click="changeGridToFourGrid"
         />
 
@@ -56,7 +56,7 @@ const sorts = [
           icon="tabler:list"
           color="neutral"
           variant="ghost"
-          class="px-8 py-4 cursor-pointer"
+          class="px-8 py-4 cursor-pointer rounded-none"
           @click="changeGridToListView"
         />
 
@@ -71,7 +71,7 @@ const sorts = [
             <u-button
               color="neutral"
               variant="ghost"
-              class="px-8 py-4 h-full cursor-pointer"
+              class="px-8 py-4 h-full cursor-pointer rounded-none"
             >
               Sort By
 
@@ -89,7 +89,7 @@ const sorts = [
               color="neutral"
               variant="ghost"
               leading-icon="tabler:filter"
-              class="px-8 py-4 h-full cursor-pointer"
+              class="px-8 py-4 h-full cursor-pointer rounded-none"
             >
               Filter
             </u-button>
