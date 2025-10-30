@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { useCartStore } from '../../stores/use-cart-store';
+import { useCartStore } from "../../stores/use-cart-store";
 
 const store = useCartStore();
 </script>
@@ -14,7 +14,13 @@ const store = useCartStore();
         :text="store.numberOfItemsInCart"
         inset
       >
-        <u-button color="neutral" variant="ghost" to="/" icon="tabler:shopping-bag" :aria-label="$t('cart')" />
+        <u-button
+          color="neutral"
+          variant="ghost"
+          to="/"
+          icon="tabler:shopping-bag"
+          :aria-label="$t('cart')"
+        />
       </u-chip>
     </u-tooltip>
 

@@ -1,4 +1,4 @@
 export type Order = {
-  orderNumber: string,
-  total: string
-}
+  orderNumber: string;
+  total: string;
+};

@@ -4,5 +4,5 @@ export default defineNuxtPlugin({
     const { data: tenantconfig } = useFetch<TenantConfig>("/api/config");
 
     useTenantState().value = tenantconfig.value;
-  }
-})
+  },
+});

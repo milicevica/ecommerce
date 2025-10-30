@@ -7,7 +7,7 @@ const { locale, setLocale } = useI18n();
 <template>
   <u-header class="border-b-0">
     <template #title>
-     <header-logo />
+      <header-logo />
     </template>
 
     <template #toggle>
@@ -18,7 +18,7 @@ const { locale, setLocale } = useI18n();
       <u-locale-select
         v-model="locale"
         :locales="[en, fr]"
-        @update:model-value="$event === 'en' || $event == 'fr' ? setLocale($event) : setLocale('en')"
+        @update:model-value="$event === 'en' || $event === 'fr' ? setLocale($event) : setLocale('en')"
       />
 
       <app-theme-toggle />

@@ -12,15 +12,15 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix"
   },
+  "dependencies": {
+    "@pinia/nuxt": "^0.11.2",
+    "pinia": "^3.0.3"
+  },
   "devDependencies": {
     "@nuxt/eslint": "latest",
     "eslint": "^9.38.0",
     "nuxt": "^4.2.0",
     "typescript": "^5.9.3",
     "vue": "latest"
-  },
-  "dependencies": {
-    "@pinia/nuxt": "^0.11.2",
-    "pinia": "^3.0.3"
   }
 }

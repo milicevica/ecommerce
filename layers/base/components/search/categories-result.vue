@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { useSearchStore } from '../../stores/use-search-store';
+import { useSearchStore } from "../../stores/use-search-store";
 
 const store = useSearchStore();
 </script>

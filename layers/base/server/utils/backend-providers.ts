@@ -7,7 +7,7 @@ type Endpoint<T = unknown> = {
   path: string;
   responseTransformer?: Transformer<T>;
   requestTransformer?: Transformer<T>;
-}
+};
 
 type Provider = {
   baseUrl: string;
@@ -31,11 +31,11 @@ const defaultProvider: Provider = {
     },
     orders: {
       method: "GET",
-      path: "/orders"
-    }
-  }
-}
+      path: "/orders",
+    },
+  },
+};
 
 export const providers = {
-  default: defaultProvider
-}
+  default: defaultProvider,
+};

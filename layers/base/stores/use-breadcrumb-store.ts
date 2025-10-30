@@ -3,7 +3,7 @@ import type { BreadcrumbItem } from "@nuxt/ui";
 export const useBreadcrumbStore = defineStore("breadcrumbs", {
   state: () => ({ breadcrumbs: [] as Array<unknown> }),
   getters: {
-    getBreadcrumbs: (state) => state.breadcrumbs as Array<BreadcrumbItem>,
+    getBreadcrumbs: state => state.breadcrumbs as Array<BreadcrumbItem>,
   },
   actions: {
     addBreadcrumbs(arrayOfBreadcrumbs: Array<BreadcrumbItem>) {
@@ -20,10 +20,10 @@ export const useBreadcrumbStore = defineStore("breadcrumbs", {
         label: "",
         icon: "tabler:home",
         to: "/",
-      })
+      });
     },
     resetBreadcrumb() {
       this.breadcrumbs = [];
-    }
-  }
+    },
+  },
 });

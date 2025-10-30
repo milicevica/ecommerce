@@ -17,7 +17,7 @@ export default defineEventHandler(async (event) => {
 
   const provider = providers[backendProvider];
 
-  const requestToExecute = (provider.requests as Record<string, typeof provider.requests[keyof typeof provider.requests]>)[targetPathWithoutQueryParams ? targetPathWithoutQueryParams : ""];
+  const requestToExecute = (provider.requests as Record<string, typeof provider.requests[keyof typeof provider.requests]>)[targetPathWithoutQueryParams || ""];
 
   if (!requestToExecute) {
     throw createError({ statusCode: 400, statusMessage: "Requested endpoint not found in backend provider" });
