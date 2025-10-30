@@ -37,26 +37,41 @@ const sorts = [
         {{ getCategoryName }}
       </h1>
     </div>
-    <div class="flex justify-between border">
-      <div class="flex items-center gap-4 px-8 py-4" style="border-right: 1px solid;">
-        <u-icon
-          name="tabler:grid-dots"
-          size="24"
+
+    <u-separator />
+
+    <div class="flex justify-between">
+      <div class="flex items-center">
+        <u-separator orientation="vertical" />
+
+        <u-button
+          icon="tabler:grid-dots"
+          color="neutral"
+          variant="ghost"
+          class="px-8 py-4 cursor-pointer"
           @click="changeGridToFourGrid"
         />
-        <u-icon
-          name="tabler:list"
-          size="24"
+
+        <u-button
+          icon="tabler:list"
+          color="neutral"
+          variant="ghost"
+          class="px-8 py-4 cursor-pointer"
           @click="changeGridToListView"
         />
+
+        <u-separator orientation="vertical" />
       </div>
+
       <div class="flex">
-        <div class="flex items-center" style="border-left: 1px solid; border-right: 1px solid;">
+        <div class="flex items-center">
+          <u-separator orientation="vertical" />
+
           <u-dropdown-menu :items="sorts">
             <u-button
               color="neutral"
               variant="ghost"
-              class="px-8 py-4 h-full"
+              class="px-8 py-4 h-full cursor-pointer"
             >
               Sort By
 
@@ -65,13 +80,15 @@ const sorts = [
               </template>
             </u-button>
           </u-dropdown-menu>
+
+          <u-separator orientation="vertical" />
         </div>
         <div>
           <u-slideover title="Filters">
             <u-button
               color="neutral"
               variant="ghost"
-              class="px-8 py-4 h-full"
+              class="px-8 py-4 h-full cursor-pointer"
             >
               Filter
             </u-button>
@@ -83,8 +100,12 @@ const sorts = [
             </template>
           </u-slideover>
         </div>
+
+        <u-separator orientation="vertical" />
       </div>
     </div>
+
+    <u-separator />
 
     <div :class="`grid gap-4 w-full grid-cols-${grid} mt-6`">
       <div class="overflow-hidden">
