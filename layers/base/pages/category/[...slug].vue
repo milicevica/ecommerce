@@ -17,7 +17,7 @@ const sorts = [
   { label: "Price, high to low" },
   { label: "Date, old to new" },
   { label: "Date, new to old" },
-]
+];
 </script>
 
 <template>

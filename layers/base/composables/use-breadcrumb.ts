@@ -17,9 +17,14 @@ export default function () {
       return { label, to };
     });
 
-    breadcrumbStore.set([
-      { label: "", to: "/", icon: "tabler:home" },
-      ...breadcrumbs,
-    ]);
+    if (breadcrumbs) {
+      breadcrumbStore.set([
+        { label: "", to: "/", icon: "tabler:home" },
+        ...breadcrumbs,
+      ]);
+    }
+    else {
+      breadcrumbStore.set([{ label: "Home", to: "/" }]);
+    }
   });
 }
