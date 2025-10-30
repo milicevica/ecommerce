@@ -1,16 +1,5 @@
 <script lang="ts" setup>
-import type { BreadcrumbItem } from "@nuxt/ui";
-
-import { useBreadcrumbStore } from "../../../../layers/base/stores/use-breadcrumb-store";
-
 const { locale } = useI18n();
-const route = useRoute();
-
-const breadcrumbStore = useBreadcrumbStore();
-
-watchEffect(() => {
-  breadcrumbStore.addBreadcrumbs(route.meta?.breadcrumb as BreadcrumbItem[] || []);
-});
 
 useHead(() => ({
   htmlAttrs: {
@@ -24,8 +13,13 @@ useHead(() => ({
     <app-message />
     <app-header />
 
+    <div class="w-full bg-elevated">
+      <u-container>
+        <app-breadcrumb />
+      </u-container>
+    </div>
+
     <u-container>
-      <app-breadcrumb />
       <u-main>
         <slot />
       </u-main>

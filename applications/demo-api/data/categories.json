@@ -3,45 +3,45 @@
     "id": 1,
     "name": "IT Shop",
     "icon": "tabler:devices-pc",
-    "slug": "/products/it-shop"
+    "slug": "/category/it-shop"
   },
   {
     "id": 2,
     "name": "TV, Audio & Video",
     "icon": "tabler:device-tv",
-    "slug": "/products/tv-audio-video"
+    "slug": "/category/tv-audio-video"
   },
   {
     "id": 3,
     "name": "Gaming",
     "icon": "tabler:devices-pc",
-    "slug": "/products/gaming"
+    "slug": "/category/gaming"
   },
   {
     "id": 4,
     "name": "Sports",
     "icon": "tabler:ball-football",
-    "slug": "/products/sports"
+    "slug": "/category/sports"
   },
   {
     "id": 5,
     "name": "Fitness",
     "icon": "tabler:gymnastics",
-    "slug": "/products/fitness",
+    "slug": "/category/fitness",
     "parentCategoryId": 4
   },
   {
     "id": 6,
     "name": "Treadmills",
     "icon": "tabler:run",
-    "slug": "/products/treadmills",
+    "slug": "/category/treadmills",
     "parentCategoryId": 5
   },
   {
     "id": 7,
     "name": "Exercise Bikes",
     "icon": "tabler:bike",
-    "slug": "/products/exercise-bikes",
+    "slug": "/category/exercise-bikes",
     "parentCategoryId": 5
   }
 ]
