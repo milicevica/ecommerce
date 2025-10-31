@@ -184,7 +184,14 @@ const price = ref([0, 95]);
                   </template>
 
                   <template #size>
-                    Size Options
+                    <div class="flex gap-2 mb-4">
+                      <u-badge>38</u-badge>
+                      <u-badge>39</u-badge>
+                      <u-badge>40</u-badge>
+                      <u-badge>41</u-badge>
+                      <u-badge>42</u-badge>
+                      <u-badge>43</u-badge>
+                    </div>
                   </template>
 
                   <template #price>
