@@ -239,9 +239,9 @@ const price = ref([0, 95]);
           @click="addToWishlist(product.name)"
         >
           <u-button
-            :variant="product.inWishlist ? 'solid' : 'ghost'"
-            :color="product.inWishlist ? 'error' : 'neutral'"
-            icon="tabler:heart"
+            variant="ghost"
+            color="neutral"
+            :icon="product.inWishlist ? 'tabler:heart-filled' : 'tabler:heart'"
             size="sm"
             class="rounded-none"
           />
