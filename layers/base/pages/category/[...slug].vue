@@ -83,6 +83,21 @@ function addToWishlist(productName: string): void {
     });
   }
 }
+
+const filters = [
+  {
+    label: "Color",
+    slot: "color",
+  },
+  {
+    label: "Size",
+    slot: "size",
+  },
+  {
+    label: "Price",
+    slot: "price",
+  },
+];
 </script>
 
 <template>
@@ -150,8 +165,56 @@ function addToWishlist(productName: string): void {
             </u-button>
 
             <template #body>
-              <div class="h-full flex items-center justify-center font-bold uppercase">
-                Filters go here
+              <div class="h-full flex justify-center font-bold uppercase">
+                <u-accordion :items="filters" type="multiple">
+                  <template #color>
+                    <div class="flex gap-2 mb-4">
+                      <u-avatar
+                        size="md"
+                        style="background-color: blue;"
+                        class="cursor-pointer"
+                      />
+                      <u-avatar
+                        size="md"
+                        style="background-color: rosybrown;"
+                        class="cursor-pointer"
+                      />
+                      <u-avatar
+                        size="md"
+                        style="background-color: hotpink;"
+                        class="cursor-pointer"
+                      />
+                      <u-avatar
+                        size="md"
+                        style="background-color: lightskyblue;"
+                        class="cursor-pointer"
+                      />
+                      <u-avatar
+                        size="md"
+                        style="background-color: coral;"
+                        class="cursor-pointer"
+                      />
+                      <u-avatar
+                        size="md"
+                        style="background-color: darkviolet;"
+                        class="cursor-pointer"
+                      />
+                      <u-avatar
+                        size="md"
+                        style="background-color: lightgreen;"
+                        class="cursor-pointer"
+                      />
+                    </div>
+                  </template>
+
+                  <template #size>
+                    Size Options
+                  </template>
+
+                  <template #price>
+                    Price Options
+                  </template>
+                </u-accordion>
               </div>
             </template>
           </u-slideover>
