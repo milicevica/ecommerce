@@ -24,17 +24,6 @@ const getCategoryName = computed(() => {
   return category?.replace(/-/g, " ");
 });
 
-const sorts = [
-  { label: "Featured" },
-  { label: "Best selling" },
-  { label: "Alphabetically, A-Z" },
-  { label: "Alphabetically, Z-A" },
-  { label: "Price, low to high" },
-  { label: "Price, high to low" },
-  { label: "Date, old to new" },
-  { label: "Date, new to old" },
-];
-
 const toast = useToast();
 const authStore = useAuthStore();
 
@@ -99,19 +88,7 @@ const price = ref([0, 95]);
         <div class="flex items-center">
           <u-separator orientation="vertical" />
 
-          <u-dropdown-menu :items="sorts">
-            <u-button
-              color="neutral"
-              variant="ghost"
-              class="px-8 py-4 h-full cursor-pointer rounded-none"
-            >
-              Sort By
-
-              <template #trailing>
-                <u-icon name="i-lucide-arrow-down" />
-              </template>
-            </u-button>
-          </u-dropdown-menu>
+          <category-sort-btn />
 
           <u-separator orientation="vertical" />
         </div>
