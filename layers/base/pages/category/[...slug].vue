@@ -37,26 +37,40 @@ const products = [
     price: 80.00,
     discount: "37%",
     discountedPrice: 50.40,
+    inWishlist: false,
   },
   {
     id: 2,
     name: "Product 2",
     image: "https://placehold.co/600x400",
     price: 77.00,
+    inWishlist: false,
   },
   {
     id: 3,
     name: "Product 3",
     image: "https://placehold.co/600x400",
     price: 39.00,
+    inWishlist: true,
   },
   {
     id: 4,
     name: "Product 4",
     image: "https://placehold.co/600x400",
     price: 95.00,
+    inWishlist: false,
   },
 ];
+
+const toast = useToast();
+
+function addToWishlist(productName: string): void {
+  toast.add({
+    title: "Success",
+    description: `${productName} added to your wishlist.`,
+    color: "success",
+  });
+}
 </script>
 
 <template>
@@ -156,12 +170,14 @@ const products = [
           color="neutral"
           variant="outline"
           class="absolute top-0 right-0 p-0 rounded-none"
+          @click="addToWishlist(product.name)"
         >
           <u-button
-            variant="ghost"
-            color="neutral"
+            :variant="product.inWishlist ? 'solid' : 'ghost'"
+            :color="product.inWishlist ? 'error' : 'neutral'"
             icon="tabler:heart"
             size="sm"
+            class="rounded-none"
           />
         </u-badge>
 
