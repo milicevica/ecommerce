@@ -269,11 +269,11 @@ const filters = [
           <div class="flex items-end">
             <div class="flex flex-col w-full">
               <p class="font-normal text-sm line-through h-5">
-                {{ product.discount ? `$${product.price}` : "" }}
+                {{ product.discount ? `${$price(product.price)}` : "" }}
               </p>
               <div class="flex justify-between w-full items-start">
                 <p class="font-bold text-lg py-2" :class=" { 'text-error': product.discount }">
-                  ${{ product.discount ? product.discountedPrice : product.price }}
+                  {{ product.discount ? $price(product.discountedPrice) : $price(product.price) }}
                 </p>
 
                 <u-slideover title="Add to Cart">
