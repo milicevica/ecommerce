@@ -175,22 +175,24 @@ const products = [
           <h3 class="font-normal">
             {{ product.name }}
           </h3>
-          <div class="flex items-end justify-between">
-            <div class="flex flex-col">
+          <div class="flex items-end">
+            <div class="flex flex-col w-full">
               <p class="font-normal text-sm line-through h-5">
                 {{ product.discount ? `$${product.price}` : "" }}
               </p>
-              <p class="font-bold text-lg py-2" :class=" { 'text-error': product.discount }">
-                ${{ product.discount ? product.discountedPrice : product.price }}
-              </p>
-            </div>
+              <div class="flex justify-between w-full items-start">
+                <p class="font-bold text-lg py-2" :class=" { 'text-error': product.discount }">
+                  ${{ product.discount ? product.discountedPrice : product.price }}
+                </p>
 
-            <u-button
-              size="xl"
-              color="neutral"
-              variant="ghost"
-              icon="tabler:shopping-bag-plus"
-            />
+                <u-button
+                  size="xl"
+                  color="neutral"
+                  variant="ghost"
+                  icon="tabler:shopping-bag-plus"
+                />
+              </div>
+            </div>
           </div>
         </div>
       </div>
