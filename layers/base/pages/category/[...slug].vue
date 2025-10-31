@@ -185,12 +185,18 @@ const products = [
                   ${{ product.discount ? product.discountedPrice : product.price }}
                 </p>
 
-                <u-button
-                  size="xl"
-                  color="neutral"
-                  variant="ghost"
-                  icon="tabler:shopping-bag-plus"
-                />
+                <u-slideover title="Add to Cart">
+                  <u-button
+                    size="xl"
+                    color="neutral"
+                    variant="ghost"
+                    icon="tabler:shopping-bag-plus"
+                  />
+
+                  <template #body>
+                    Add To Cart functionality goes here
+                  </template>
+                </u-slideover>
               </div>
             </div>
           </div>
