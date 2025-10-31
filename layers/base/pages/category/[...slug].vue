@@ -7,16 +7,6 @@ const gridStore = useCategoryGridStore();
 
 const { data: products } = await useFetch<Product[]>("/api/ecommerce/products");
 
-const grid = ref(4);
-
-function changeGridToFourGrid() {
-  grid.value = 4;
-}
-
-function changeGridToListView() {
-  grid.value = 1;
-}
-
 const getCategoryName = computed(() => {
   const segments = route.params.slug as Array<string>;
   const category = segments[segments.length - 1];
