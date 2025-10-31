@@ -1,7 +1,9 @@
 <script lang="ts" setup>
 import { useAuthStore } from "../../../auth/stores/use-auth-store";
+import { useCategoryGridStore } from "../../stores/use-category-grid-store";
 
 const route = useRoute();
+const gridStore = useCategoryGridStore();
 
 const { data: products } = await useFetch<Product[]>("/api/ecommerce/products");
 
@@ -87,21 +89,8 @@ const price = ref([0, 95]);
       <div class="flex items-center">
         <u-separator orientation="vertical" />
 
-        <u-button
-          icon="tabler:grid-dots"
-          color="neutral"
-          variant="ghost"
-          class="px-8 py-4 cursor-pointer rounded-none"
-          @click="changeGridToFourGrid"
-        />
-
-        <u-button
-          icon="tabler:list"
-          color="neutral"
-          variant="ghost"
-          class="px-8 py-4 cursor-pointer rounded-none"
-          @click="changeGridToListView"
-        />
+        <category-grid-layout-btn />
+        <category-list-layout-btn />
 
         <u-separator orientation="vertical" />
       </div>
@@ -185,12 +174,12 @@ const price = ref([0, 95]);
 
     <u-separator />
 
-    <div :class="`grid gap-8 w-full grid-cols-${grid} mt-6`">
+    <category-grid>
       <div
         v-for="product in products"
         :key="product.id"
         class="cursor-pointer relative flex gap-4 shadow-sm"
-        :class="{ 'flex-col': grid === 4 }"
+        :class="{ 'flex-col': gridStore.isGridLayout }"
       >
         <u-badge
           v-if="product.sale"
@@ -224,7 +213,7 @@ const price = ref([0, 95]);
           >
         </div>
 
-        <div class="flex flex-col gap-4 p-2 w-full" :class="{ 'justify-between': grid === 1 }">
+        <div class="flex flex-col gap-4 p-2 w-full" :class="{ 'justify-between': gridStore.isListLayout }">
           <h3 class="font-normal">
             {{ product.name }}
           </h3>
@@ -255,6 +244,6 @@ const price = ref([0, 95]);
           </div>
         </div>
       </div>
-    </div>
+    </category-grid>
   </div>
 </template>
