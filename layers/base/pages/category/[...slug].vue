@@ -3,6 +3,8 @@ import { useAuthStore } from "../../../auth/stores/use-auth-store";
 
 const route = useRoute();
 
+const { data: products } = await useFetch<Product[]>("/api/ecommerce/products");
+
 const grid = ref(4);
 
 function changeGridToFourGrid() {
@@ -29,39 +31,6 @@ const sorts = [
   { label: "Price, high to low" },
   { label: "Date, old to new" },
   { label: "Date, new to old" },
-];
-
-const products = [
-  {
-    id: 1,
-    name: "Product 1",
-    image: "https://placehold.co/600x400",
-    price: 80.00,
-    discount: "37%",
-    discountedPrice: 50.40,
-    inWishlist: false,
-  },
-  {
-    id: 2,
-    name: "Product 2",
-    image: "https://placehold.co/600x400",
-    price: 77.00,
-    inWishlist: false,
-  },
-  {
-    id: 3,
-    name: "Product 3",
-    image: "https://placehold.co/600x400",
-    price: 39.00,
-    inWishlist: true,
-  },
-  {
-    id: 4,
-    name: "Product 4",
-    image: "https://placehold.co/600x400",
-    price: 95.00,
-    inWishlist: false,
-  },
 ];
 
 const toast = useToast();
@@ -224,12 +193,12 @@ const price = ref([0, 95]);
         :class="{ 'flex-col': grid === 4 }"
       >
         <u-badge
-          v-if="product.discount"
+          v-if="product.sale"
           size="xl"
           color="error"
           class="absolute top-0 left-0 rounded-none"
         >
-          -{{ product.discount }}
+          -{{ product.sale }}
         </u-badge>
         <u-badge
           size="xl"
@@ -241,7 +210,7 @@ const price = ref([0, 95]);
           <u-button
             variant="ghost"
             color="neutral"
-            :icon="product.inWishlist ? 'tabler:heart-filled' : 'tabler:heart'"
+            :icon="product.favorite ? 'tabler:heart-filled' : 'tabler:heart'"
             size="sm"
             class="rounded-none"
           />
@@ -249,7 +218,7 @@ const price = ref([0, 95]);
 
         <div class="h-48">
           <img
-            :src="product.image"
+            :src="product.thumbnail"
             :alt="product.name"
             class="w-full object-cover h-48"
           >
@@ -262,11 +231,11 @@ const price = ref([0, 95]);
           <div class="flex items-end">
             <div class="flex flex-col w-full">
               <p class="font-normal text-sm line-through h-5">
-                {{ product.discount ? `${$price(product.price)}` : "" }}
+                {{ product.sale ? `${$price(product.price)}` : "" }}
               </p>
               <div class="flex justify-between w-full items-start">
-                <p class="font-bold text-lg py-2" :class=" { 'text-error': product.discount }">
-                  {{ product.discount ? $price(product.discountedPrice) : $price(product.price) }}
+                <p class="font-bold text-lg py-2" :class=" { 'text-error': product.sale }">
+                  {{ product.sale ? $price(product.salePrice) : $price(product.price) }}
                 </p>
 
                 <u-slideover title="Add to Cart">

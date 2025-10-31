@@ -1,10 +1,24 @@
 [
   {
     "id": 1,
-    "name": "Test Product"
+    "name": "Asus Laptop Vivobook 15",
+    "sku": "asus-x1504va-bq1649",
+    "thumbnail": "https://placehold.co/600x400",
+    "price": 740.99,
+    "sale": "37%",
+    "salePrice": 465.99,
+    "category": 1,
+    "favorite": false
   },
   {
     "id": 2,
-    "name": "Another Test Product"
+    "name": "Apple MacBook Air M1",
+    "sku": "asus-x1504va-bq1649",
+    "thumbnail": "https://placehold.co/600x400",
+    "price": 890.00,
+    "sale": null,
+    "salePrice": null,
+    "category": 1,
+    "favorite": false
   }
 ]
