@@ -88,16 +88,20 @@ const filters = [
   {
     label: "Color",
     slot: "color",
+    values: ["Blue", "Rosy Brown", "Hot Pink", "Light Sky Blue", "Coral", "Dark Violet", "Light Green"],
   },
   {
     label: "Size",
     slot: "size",
+    values: ["S", "M", "L", "XL"],
   },
   {
     label: "Price",
     slot: "price",
   },
 ];
+
+const price = ref([0, 95]);
 </script>
 
 <template>
@@ -167,41 +171,13 @@ const filters = [
             <template #body>
               <div class="h-full flex justify-center font-bold uppercase">
                 <u-accordion :items="filters" type="multiple">
-                  <template #color>
+                  <template #color="{ item }">
                     <div class="flex gap-2 mb-4">
                       <u-avatar
+                        v-for="color in item.values"
+                        :key="color"
                         size="md"
                         style="background-color: blue;"
-                        class="cursor-pointer"
-                      />
-                      <u-avatar
-                        size="md"
-                        style="background-color: rosybrown;"
-                        class="cursor-pointer"
-                      />
-                      <u-avatar
-                        size="md"
-                        style="background-color: hotpink;"
-                        class="cursor-pointer"
-                      />
-                      <u-avatar
-                        size="md"
-                        style="background-color: lightskyblue;"
-                        class="cursor-pointer"
-                      />
-                      <u-avatar
-                        size="md"
-                        style="background-color: coral;"
-                        class="cursor-pointer"
-                      />
-                      <u-avatar
-                        size="md"
-                        style="background-color: darkviolet;"
-                        class="cursor-pointer"
-                      />
-                      <u-avatar
-                        size="md"
-                        style="background-color: lightgreen;"
                         class="cursor-pointer"
                       />
                     </div>
@@ -212,7 +188,14 @@ const filters = [
                   </template>
 
                   <template #price>
-                    Price Options
+                    <u-slider
+                      v-model="price"
+                      color="neutral"
+                      size="xl"
+                      :min="0"
+                      :max="95"
+                      tooltip
+                    />
                   </template>
                 </u-accordion>
               </div>
