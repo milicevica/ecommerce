@@ -220,7 +220,8 @@ const price = ref([0, 95]);
       <div
         v-for="product in products"
         :key="product.id"
-        class="cursor-pointer relative flex flex-col gap-4 shadow-sm"
+        class="cursor-pointer relative flex gap-4 shadow-sm"
+        :class="{ 'flex-col': grid === 4 }"
       >
         <u-badge
           v-if="product.discount"
@@ -246,13 +247,15 @@ const price = ref([0, 95]);
           />
         </u-badge>
 
-        <img
-          :src="product.image"
-          :alt="product.name"
-          class="w-full object-cover"
-        >
+        <div class="h-48">
+          <img
+            :src="product.image"
+            :alt="product.name"
+            class="w-full object-cover h-48"
+          >
+        </div>
 
-        <div class="flex flex-col gap-4 p-2">
+        <div class="flex flex-col gap-4 p-2 w-full" :class="{ 'justify-between': grid === 1 }">
           <h3 class="font-normal">
             {{ product.name }}
           </h3>
