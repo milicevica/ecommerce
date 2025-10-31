@@ -1,4 +1,6 @@
 <script lang="ts" setup>
+import { useAuthStore } from "../../../auth/stores/use-auth-store";
+
 const route = useRoute();
 
 const grid = ref(4);
@@ -63,13 +65,23 @@ const products = [
 ];
 
 const toast = useToast();
+const authStore = useAuthStore();
 
 function addToWishlist(productName: string): void {
-  toast.add({
-    title: "Success",
-    description: `${productName} added to your wishlist.`,
-    color: "success",
-  });
+  if (authStore.isAuthenticated) {
+    toast.add({
+      title: "Success",
+      description: `${productName} added to your wishlist.`,
+      color: "success",
+    });
+  }
+  else {
+    toast.add({
+      title: "",
+      description: "You need to be logged in to add items to your wishlist.",
+      color: "neutral",
+    });
+  }
 }
 </script>
 
