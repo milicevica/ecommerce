@@ -164,6 +164,7 @@ const products = [
             size="sm"
           />
         </u-badge>
+
         <img
           :src="product.image"
           :alt="product.name"
@@ -176,10 +177,10 @@ const products = [
           </h3>
           <div class="flex items-end justify-between">
             <div class="flex flex-col">
-              <p v-if="product.discount" class="font-normal text-sm line-through">
-                ${{ product.price }}
+              <p class="font-normal text-sm line-through h-5">
+                {{ product.discount ? `$${product.price}` : "" }}
               </p>
-              <p class="font-bold text-lg text-error">
+              <p class="font-bold text-lg py-2" :class=" { 'text-error': product.discount }">
                 ${{ product.discount ? product.discountedPrice : product.price }}
               </p>
             </div>
