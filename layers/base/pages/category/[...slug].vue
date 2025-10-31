@@ -28,6 +28,35 @@ const sorts = [
   { label: "Date, old to new" },
   { label: "Date, new to old" },
 ];
+
+const products = [
+  {
+    id: 1,
+    name: "Product 1",
+    image: "https://placehold.co/600x400",
+    price: 80.00,
+    discount: "37%",
+    discountedPrice: 50.40,
+  },
+  {
+    id: 2,
+    name: "Product 2",
+    image: "https://placehold.co/600x400",
+    price: 77.00,
+  },
+  {
+    id: 3,
+    name: "Product 3",
+    image: "https://placehold.co/600x400",
+    price: 39.00,
+  },
+  {
+    id: 4,
+    name: "Product 4",
+    image: "https://placehold.co/600x400",
+    price: 95.00,
+  },
+];
 </script>
 
 <template>
@@ -108,66 +137,61 @@ const sorts = [
 
     <u-separator />
 
-    <div :class="`grid gap-12 w-full grid-cols-${grid} mt-6`">
-      <div class="cursor-pointer">
+    <div :class="`grid gap-8 w-full grid-cols-${grid} mt-6`">
+      <div
+        v-for="product in products"
+        :key="product.id"
+        class="cursor-pointer relative flex flex-col gap-4 shadow-sm"
+      >
+        <u-badge
+          v-if="product.discount"
+          size="xl"
+          color="error"
+          class="absolute top-0 left-0 rounded-none"
+        >
+          -{{ product.discount }}
+        </u-badge>
+        <u-badge
+          size="xl"
+          color="neutral"
+          variant="outline"
+          class="absolute top-0 right-0 p-0 rounded-none"
+        >
+          <u-button
+            variant="ghost"
+            color="neutral"
+            icon="tabler:heart"
+            size="sm"
+          />
+        </u-badge>
         <img
-          src="https://placehold.co/600x400"
-          alt="Product 1"
+          :src="product.image"
+          :alt="product.name"
           class="w-full object-cover"
         >
 
-        <h3 class="font-normal text-center">
-          Product 1
-        </h3>
+        <div class="flex flex-col gap-4 p-2">
+          <h3 class="font-normal">
+            {{ product.name }}
+          </h3>
+          <div class="flex items-end justify-between">
+            <div class="flex flex-col">
+              <p v-if="product.discount" class="font-normal text-sm line-through">
+                ${{ product.price }}
+              </p>
+              <p class="font-bold text-lg text-error">
+                ${{ product.discount ? product.discountedPrice : product.price }}
+              </p>
+            </div>
 
-        <p class="font-bold text-lg text-center">
-          $80.00
-        </p>
-      </div>
-      <div class="cursor-pointer">
-        <img
-          src="https://placehold.co/600x400"
-          alt="Product 2"
-          class="w-full object-cover"
-        >
-
-        <h3 class="font-normal text-center">
-          Product 2
-        </h3>
-
-        <p class="font-bold text-lg text-center">
-          $77.00
-        </p>
-      </div>
-      <div class="cursor-pointer">
-        <img
-          src="https://placehold.co/600x400"
-          alt="Product 3"
-          class="w-full object-cover"
-        >
-
-        <h3 class="font-normal text-center">
-          Product 3
-        </h3>
-
-        <p class="font-bold text-lg text-center">
-          $39.00
-        </p>
-      </div>
-      <div class="cursor-pointer">
-        <img
-          src="https://placehold.co/600x400"
-          alt="Product 4"
-          class="w-full object-cover"
-        >
-
-        <h3 class="font-normal text-center">
-          Product 4
-        </h3>
-
-        <p class="font-bold text-lg text-center">
-          $95.00
-        </p>
+            <u-button
+              size="xl"
+              color="neutral"
+              variant="ghost"
+              icon="tabler:shopping-bag-plus"
+            />
+          </div>
+        </div>
       </div>
     </div>
   </div>
